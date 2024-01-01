@@ -63,7 +63,6 @@ class ItemsControllerImp extends SearchController {
     update();
   }
 
-  
   gotoproduct(itemsModel) {
     Get.toNamed(AppRoute.productdetails, arguments: {"itemsmodel": itemsModel});
   }
