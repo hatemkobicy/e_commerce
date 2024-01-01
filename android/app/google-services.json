@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "481811452030",
+    "project_id": "ecommerce-d1bb4",
+    "storage_bucket": "ecommerce-d1bb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481811452030:android:0fda7fdbc09a33c6d7082f",
+        "android_client_info": {
+          "package_name": "com.hatemtech.e_commerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABVcpcvIK6zoCaR47Sph8Ae4Zx_PBCcAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
