@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/controller/fav_controller.dart';
 import 'package:e_commerce/controller/items_controller.dart';
 import 'package:e_commerce/core/constants/color.dart';
+import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/data/model/itemsview_model.dart';
 import 'package:e_commerce/linkapi.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +24,7 @@ class CustomeCard extends GetView<ItemsControllerImp> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            itemsModel.itemsPrice.toString() + "\$",
+            itemsModel.itemsPriceDiscount.toString() + "\$",
             maxLines: 1,
             style: TextStyle(
                 fontSize: 18, fontWeight: FontWeight.w600, color: color),
@@ -75,17 +76,30 @@ class CustomeCard extends GetView<ItemsControllerImp> {
       },
       child: Container(
         padding: const EdgeInsets.all(5),
-        child: FillImageCard(
-          color: AppColor.backgroundcolor1,
-          heightImage: 160,
-          width: 200,
-          imageProvider: CachedNetworkImageProvider(
-            AppLink.imageitems + "/" + itemsModel.itemsImage!,
-            maxHeight: 150,
-          ),
-          title: _title(color: Colors.white),
-          description: _content(color: Colors.white),
-          footer: _footer(color: Colors.white),
+        child: Stack(
+          children: [
+            FillImageCard(
+              color: AppColor.backgroundcolor1,
+              heightImage: 160,
+              width: 200,
+              imageProvider: CachedNetworkImageProvider(
+                AppLink.imageitems + "/" + itemsModel.itemsImage!,
+                maxHeight: 150,
+              ),
+              title: _title(color: Colors.white),
+              description: _content(color: Colors.white),
+              footer: _footer(color: Colors.white),
+            ),
+            if (itemsModel.itemsDiscount != 0)
+              Positioned(
+                child: Image.asset(
+                  AppImageAsset.sale,
+                  width: 40,
+                ),
+                left: 10,
+                top: 10,
+              ),
+          ],
         ),
       ),
     );

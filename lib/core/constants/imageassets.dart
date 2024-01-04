@@ -12,4 +12,5 @@ class AppImageAsset {
   static const String failure = "assets/lottie/failure.json";
   static const String laptop = "assets/images/laptop.png";
   static const String person = "assets/images/person.jpg";
+  static const String sale = "assets/images/sale.png";
 }

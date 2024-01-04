@@ -19,7 +19,7 @@ class CartScreen extends StatelessWidget {
         bottomNavigationBar: CustomPriceNav(
           price: '${cartController.priceorders}\$',
           shippingprice: '100\$',
-          totalprice: '5000\$',
+          totalprice: '${cartController.priceorders+100}\$',
           message: '${controller.totalcountitems}',
         ),
         appBar: AppBar(
