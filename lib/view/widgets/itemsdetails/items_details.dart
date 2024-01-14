@@ -30,7 +30,7 @@ class CustomeItemsDetails extends GetView<ProductDetailsControllerImp> {
           Row(
             children: [
               Text(
-                controller.itemsModel.itemsPriceDiscount.toString() + "\$",
+                "${controller.itemsModel.itemsPrice}\$",
                 style: const TextStyle(color: Colors.white, fontSize: 20),
               ),
               const Spacer(),

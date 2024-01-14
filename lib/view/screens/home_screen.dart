@@ -34,13 +34,14 @@ class HomeScreenNav extends StatelessWidget {
                 gap: 8,
                 activeColor: Colors.black,
                 iconSize: 24,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                 duration: const Duration(milliseconds: 400),
                 tabBackgroundColor: AppColor.backgroundcolor1.withOpacity(0.8),
                 color: Colors.white,
                 tabs: [
                   GButton(
-                    onPressed: (){
+                    onPressed: () {
                       controller.changePage(0);
                     },
                     icon: Icons.home,
@@ -54,9 +55,8 @@ class HomeScreenNav extends StatelessWidget {
                     text: 'Profile',
                   ),
                   GButton(
-                    onPressed: ()async {
-                      controller.cartController.refreshPage();
-                    await  controller.changePage(2);
+                    onPressed: () {
+                      controller.changePage(2);
                     },
                     icon: Icons.shopping_basket_rounded,
                     text: 'Cart',

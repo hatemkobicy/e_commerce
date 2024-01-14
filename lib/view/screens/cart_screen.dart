@@ -18,7 +18,7 @@ class CartScreen extends StatelessWidget {
       builder: (controller) => Scaffold(
         bottomNavigationBar: CustomPriceNav(
           price: '${cartController.priceorders}\$',
-          shippingprice: '100\$',
+          shippingprice: '0\$',
           totalprice: '${cartController.priceorders}\$',
           message: '${controller.totalcountitems}',
         ),
@@ -34,9 +34,9 @@ class CartScreen extends StatelessWidget {
             ...List.generate(
               cartController.data.length,
               (index) => CustomListViewCart(
-                price: '${cartController.data[index].cartitemsprice}',
+                price: '${cartController.data[index].itemsPrice}',
                 title: '${cartController.data[index].itemsName}',
-                itemscount: '${cartController.data[index].itemscount}',
+                itemscount: '${cartController.data[index].countitems}',
                 onPressedadd: () async {
                   await productcontroller
                       .addcart(cartController.data[index].itemsId!);

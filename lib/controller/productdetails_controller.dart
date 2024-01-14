@@ -15,7 +15,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
   // CartController cartController = Get.put(CartController());
   late ItemsModel itemsModel;
   int countitems = 0;
- late StatusRequest statusRequest;
+  StatusRequest? statusRequest;
   AppServices appServices = Get.find();
   CartData cartData = CartData(Get.find());
 

@@ -1,7 +1,4 @@
-// ignore_for_file: prefer_interpolation_to_compose_strings, unused_local_variable
-
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_commerce/controller/cart_controller.dart';
 import 'package:e_commerce/controller/productdetails_controller.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
@@ -20,9 +17,7 @@ class ProductDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CartController cartController = Get.put(CartController());
-    ProductDetailsControllerImp controller =
-        Get.put(ProductDetailsControllerImp());
+    Get.put(ProductDetailsControllerImp());
     return Scaffold(
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
@@ -35,7 +30,7 @@ class ProductDetailsPage extends StatelessWidget {
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadiusDirectional.circular(40)),
           onPressed: () {
-            cartController.refreshPage();
+            
             Get.toNamed(AppRoute.cart);
           },
           child: const Text(
@@ -67,9 +62,7 @@ class ProductDetailsPage extends StatelessWidget {
                           ),
                           Center(
                             child: CachedNetworkImage(
-                              imageUrl: AppLink.imageitems +
-                                  "/" +
-                                  controller.itemsModel.itemsImage!,
+                              imageUrl: "${AppLink.imageitems}/${controller.itemsModel.itemsImage!}",
                               height: 300,
                             ),
                           ),

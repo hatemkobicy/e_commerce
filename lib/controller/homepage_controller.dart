@@ -22,7 +22,7 @@ class HomePageControllerImp extends HomePageController {
   List categories = [];
   List items = [];
   String? username;
-  StatusRequest? statusRequest;
+ late StatusRequest statusRequest;
 
   @override
   initialData() {
@@ -56,8 +56,9 @@ class HomePageControllerImp extends HomePageController {
   }
 
   
-  gotoprouductdetiles(ItemsModel) {
-    Get.toNamed(AppRoute.productdetails, arguments: {"itemsmodel": ItemsModel});
+  @override
+  gotoprouductdetiles(itemsModel) {
+    Get.toNamed(AppRoute.productdetails, arguments: {"itemsmodel": itemsModel});
   }
 
   @override
@@ -74,7 +75,7 @@ class HomePageControllerImp extends HomePageController {
 class SearchController extends GetxController{
   TextEditingController search =TextEditingController();
   bool isSearch = false;
-  StatusRequest? statusRequest;
+ late StatusRequest statusRequest;
   HomeData homeData = HomeData(Get.find());
   List<ItemsModel> listdata = [];
 
@@ -92,8 +93,8 @@ class SearchController extends GetxController{
     update();
   }
 
-  gotoprouductdetiles(ItemsModel) {
-    Get.toNamed(AppRoute.productdetails, arguments: {"itemsmodel": ItemsModel});
+  gotoprouductdetiles(itemsModel) {
+    Get.toNamed(AppRoute.productdetails, arguments: {"itemsmodel": itemsModel});
   }
 
   searchdata() async {

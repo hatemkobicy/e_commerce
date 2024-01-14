@@ -1,5 +1,3 @@
-// ignore_for_file: override_on_non_overriding_member, overridden_fields, annotate_overrides, avoid_print
-
 import 'package:e_commerce/controller/homepage_controller.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/routes.dart';
@@ -18,7 +16,7 @@ abstract class ItemsController extends GetxController {
 
 class ItemsControllerImp extends SearchController {
   ItemsData itemsData = ItemsData(Get.find());
-  StatusRequest? statusRequest;
+  late StatusRequest statusRequest;
   List categories = [];
   String? catid;
   int? selectedcat;
@@ -31,7 +29,6 @@ class ItemsControllerImp extends SearchController {
     super.onInit();
   }
 
-  @override
   initalData() {
     categories = Get.arguments['categories'];
     selectedcat = Get.arguments['selectedcat'];

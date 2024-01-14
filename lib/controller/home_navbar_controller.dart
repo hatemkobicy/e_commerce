@@ -1,4 +1,4 @@
-import 'package:e_commerce/controller/cart_controller.dart';
+
 import 'package:e_commerce/view/screens/cart_screen.dart';
 import 'package:e_commerce/view/screens/home.dart';
 import 'package:e_commerce/view/screens/settings_screen.dart';
@@ -10,7 +10,7 @@ abstract class HomeNavController extends GetxController {
 }
 
 class HomeNavControllerImp extends HomeNavController {
-  CartController cartController = Get.put(CartController());
+
   int correntpage = 0;
 
   List<Widget> listpage = [

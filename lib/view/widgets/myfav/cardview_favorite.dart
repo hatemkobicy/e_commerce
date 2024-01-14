@@ -1,9 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/controller/myfav_controller.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/data/model/favorite_model.dart';
-import 'package:e_commerce/data/model/itemsview_model.dart';
 import 'package:e_commerce/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

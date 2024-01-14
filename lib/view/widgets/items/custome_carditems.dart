@@ -24,7 +24,7 @@ class CustomeCard extends GetView<ItemsControllerImp> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            itemsModel.itemsPriceDiscount.toString() + "\$",
+            "${itemsModel.itemsPrice}\$",
             maxLines: 1,
             style: TextStyle(
                 fontSize: 18, fontWeight: FontWeight.w600, color: color),
@@ -92,12 +92,12 @@ class CustomeCard extends GetView<ItemsControllerImp> {
             ),
             if (itemsModel.itemsDiscount != 0)
               Positioned(
+                left: 10,
+                top: 10,
                 child: Image.asset(
                   AppImageAsset.sale,
                   width: 40,
                 ),
-                left: 10,
-                top: 10,
               ),
           ],
         ),
