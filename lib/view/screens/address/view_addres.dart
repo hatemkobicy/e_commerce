@@ -9,6 +9,9 @@ class ViewAddres extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColor.primery,
       appBar: AppBar(
+        foregroundColor: Colors.white,
+        backgroundColor: AppColor.primery,
+        centerTitle: true,
         title: const Text('My Address'),
       ),
       body: Container(),

@@ -1,6 +1,7 @@
 import 'package:e_commerce/controller/settings_controller.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
+import 'package:e_commerce/core/constants/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -49,15 +50,21 @@ class SettingScreen extends StatelessWidget {
                   ListTile(
                     onTap: () {},
                     title: Text("Change Language"),
-                    trailing: Icon(Icons.language_sharp,color: AppColor.primery,),
+                    trailing: Icon(
+                      Icons.language_sharp,
+                      color: AppColor.primery,
+                    ),
                   ),
                   const Divider(
                     color: AppColor.primery,
                   ),
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      Get.toNamed(AppRoute.addressview);
+                    },
                     title: Text("My Adress"),
-                    trailing: Icon(Icons.location_on_sharp,
+                    trailing: Icon(
+                      Icons.location_on_sharp,
                       color: AppColor.primery,
                     ),
                   ),
@@ -67,7 +74,8 @@ class SettingScreen extends StatelessWidget {
                   ListTile(
                     onTap: () {},
                     title: Text("About Us"),
-                    trailing: Icon(Icons.people,
+                    trailing: Icon(
+                      Icons.people,
                       color: AppColor.primery,
                     ),
                   ),
@@ -77,7 +85,8 @@ class SettingScreen extends StatelessWidget {
                   ListTile(
                     onTap: () {},
                     title: Text("Contact Us"),
-                    trailing: Icon(Icons.contact_support,
+                    trailing: Icon(
+                      Icons.contact_support,
                       color: AppColor.primery,
                     ),
                   ),
@@ -89,7 +98,8 @@ class SettingScreen extends StatelessWidget {
                       controller.logout();
                     },
                     title: Text("Logout"),
-                    trailing: Icon(Icons.exit_to_app,
+                    trailing: Icon(
+                      Icons.exit_to_app,
                       color: AppColor.primery,
                     ),
                   ),
