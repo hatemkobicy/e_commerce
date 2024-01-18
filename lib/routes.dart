@@ -9,14 +9,14 @@ import 'package:e_commerce/view/screens/auth/login_screen.dart';
 import 'package:e_commerce/view/screens/auth/forgetpassword/resetpassword.dart';
 import 'package:e_commerce/view/screens/auth/signup_screen.dart';
 import 'package:e_commerce/view/screens/auth/forgetpassword/verifycode.dart';
-import 'package:e_commerce/view/screens/cart_screen.dart';
-import 'package:e_commerce/view/screens/home_screen.dart';
+import 'package:e_commerce/view/screens/cart/cart_screen.dart';
+import 'package:e_commerce/view/screens/home/home_screen.dart';
 import 'package:e_commerce/view/screens/items.dart';
 import 'package:e_commerce/view/screens/language.dart';
 import 'package:e_commerce/view/screens/myfav_screen.dart';
 import 'package:e_commerce/view/screens/onboarding.dart';
 import 'package:e_commerce/view/screens/product_details.dart';
-import 'package:e_commerce/view/screens/verifycodesignup.dart';
+import 'package:e_commerce/view/screens/auth/verifycodesignup.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [

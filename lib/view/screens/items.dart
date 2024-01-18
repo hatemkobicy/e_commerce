@@ -5,7 +5,7 @@ import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/data/model/itemsview_model.dart';
-import 'package:e_commerce/view/screens/home.dart';
+import 'package:e_commerce/view/screens/home/home.dart';
 import 'package:e_commerce/view/widgets/home/custome_searchbar.dart';
 import 'package:e_commerce/view/widgets/items/custome_carditems.dart';
 import 'package:e_commerce/view/widgets/items/listcategories_items.dart';
