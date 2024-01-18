@@ -52,7 +52,7 @@ class CartModel {
     itemsImage = json['items_image'];
     itemsCount = json['items_count'];
     itemsActive = json['items_active'];
-    itemsPrice = json['items_price'];
+    itemsPrice = json['itemsprice'];
     itemsDiscount = json['items_discount'];
     itemsDatetime = json['items_datetime'];
     countitems = json['countitems'];
@@ -74,7 +74,7 @@ class CartModel {
     data['items_image'] = this.itemsImage;
     data['items_count'] = this.itemsCount;
     data['items_active'] = this.itemsActive;
-    data['items_price'] = this.itemsPrice;
+    data['itemsprice'] = this.itemsPrice;
     data['items_discount'] = this.itemsDiscount;
     data['items_datetime'] = this.itemsDatetime;
     return data;

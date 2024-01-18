@@ -24,7 +24,7 @@ class CustomeCard extends GetView<ItemsControllerImp> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "${itemsModel.itemsPrice}\$",
+            "${itemsModel.itemspricediscount}\$",
             maxLines: 1,
             style: TextStyle(
                 fontSize: 18, fontWeight: FontWeight.w600, color: color),
