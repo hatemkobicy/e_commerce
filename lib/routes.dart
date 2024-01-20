@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:e_commerce/core/middleware/app_middleware.dart';
+import 'package:e_commerce/view/screens/address/add_addres.dart';
 import 'package:e_commerce/view/screens/address/view_addres.dart';
 import 'package:e_commerce/view/screens/auth/forgetpassword/success_resetpassword.dart';
 import 'package:e_commerce/view/screens/auth/success_signup.dart';
@@ -56,6 +57,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.verficodesignup, page: () => const VerfiyCodeSignup()),
   GetPage(name: AppRoute.myfav, page: () => const MyFavorite()),
   GetPage(name: AppRoute.addressview, page: () => const ViewAddres()),
+  GetPage(name: AppRoute.addressadd, page: () => const AddAddres()),
 ];
 
 // Map<String, Widget Function(BuildContext)> routees = {
