@@ -17,8 +17,9 @@ class CartScreen extends StatelessWidget {
     return GetBuilder<CartController>(
       builder: (controller) => Scaffold(
         bottomNavigationBar: CustomPriceNav(
+          controllercoupon: cartController.controllercoupon!,
           price: '${cartController.priceorders}\$',
-          shippingprice: '0\$',
+          discount: '10%',
           totalprice: '${cartController.priceorders}\$',
           message: '${controller.totalcountitems}',
         ),

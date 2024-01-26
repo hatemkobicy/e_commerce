@@ -3,9 +3,11 @@ import 'package:e_commerce/core/functions/handlingdata.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/model/cart_model.dart';
 import 'package:e_commerce/data/source/remote/cart_data.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class CartController extends GetxController {
+  TextEditingController? controllercoupon;
   List<CartModel> data = [];
 
   AppServices appServices = Get.find();
@@ -51,6 +53,7 @@ class CartController extends GetxController {
 
   @override
   void onInit() {
+    controllercoupon = TextEditingController();
     viewcart();
     super.onInit();
   }
