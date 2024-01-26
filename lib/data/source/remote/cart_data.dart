@@ -29,4 +29,12 @@ var response = await crud.postData(AppLink.viewcart,
 return response.fold((l) => l, (r) => r);
 }
 
+cheakCoupon(String couponname) async {
+var response = await crud.postData(AppLink.checkcoupon,
+{"couponname": couponname});
+return response.fold((l) => l, (r) => r);
+}
+
+
+
 }

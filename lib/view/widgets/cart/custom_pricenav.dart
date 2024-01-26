@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/constants/color.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class CustomPriceNav extends StatelessWidget {
@@ -16,7 +17,8 @@ class CustomPriceNav extends StatelessWidget {
       required this.totalprice,
       this.onPressed,
       required this.message,
-      this.controllercoupon, this.onPressedapply});
+      this.controllercoupon,
+      this.onPressedapply});
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class CustomPriceNav extends StatelessWidget {
             children: [
               Expanded(
                 child: TextFormField(
+                  
                   textAlign: TextAlign.center,
                   controller: controllercoupon,
                   style: const TextStyle(
@@ -205,6 +208,7 @@ class CustomPriceNav extends StatelessWidget {
             ),
           ),
         ),
+        SizedBox(height: MediaQuery.of(context).viewInsets.bottom),
       ],
     );
   }

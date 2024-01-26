@@ -5,6 +5,7 @@ import 'package:e_commerce/view/widgets/cart/custom_listview.dart';
 import 'package:e_commerce/view/widgets/cart/custom_pricenav.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -17,10 +18,13 @@ class CartScreen extends StatelessWidget {
     return GetBuilder<CartController>(
       builder: (controller) => Scaffold(
         bottomNavigationBar: CustomPriceNav(
+          onPressedapply: () {
+            cartController.cheakCoupon();
+          },
           controllercoupon: cartController.controllercoupon!,
           price: '${cartController.priceorders}\$',
-          discount: '10%',
-          totalprice: '${cartController.priceorders}\$',
+          discount: "${cartController.discountcoupon}%",
+          totalprice: '${cartController.getTotalPrice()}\$',
           message: '${controller.totalcountitems}',
         ),
         appBar: AppBar(

@@ -35,4 +35,6 @@ class AppLink {
   static String deletecart = "$server/cart/deletecart.php";
   static String viewcart = "$server/cart/viewcart.php";
   static String getcountitems = "$server/cart/getcountitems.php";
+  //====================coupon============================
+  static String checkcoupon = "$server/coupon/checkcoupon.php";
 }
