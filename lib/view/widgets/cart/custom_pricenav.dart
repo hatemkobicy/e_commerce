@@ -1,6 +1,8 @@
+import 'package:e_commerce/controller/cart_controller.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomPriceNav extends StatelessWidget {
   final String price;
@@ -26,66 +28,75 @@ class CustomPriceNav extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          padding: EdgeInsets.only(right: 15, left: 15, top: 5, bottom: 5),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextFormField(
-                  
-                  textAlign: TextAlign.center,
-                  controller: controllercoupon,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.normal),
-                  decoration: InputDecoration(
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                    isDense: true,
-                    alignLabelWithHint: true,
-                    hintStyle: const TextStyle(
-                        height: 1,
-                        color: Colors.white,
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal),
-                    hintText: "Coupon Code",
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 1),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.white, width: 1),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 7,
-              ),
-              Container(
-                width: 120,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadiusDirectional.circular(6),
-                  color: AppColor.backgroundcolor1,
-                ),
-                height: 42,
-                child: MaterialButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadiusDirectional.circular(40)),
-                  onPressed: onPressedapply,
-                  child: Text(
-                    "Apply",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+            padding: EdgeInsets.only(right: 15, left: 15, top: 5, bottom: 5),
+            child: GetBuilder<CartController>(
+                builder: (controller) => controller.couponname == null
+                    ? Row(
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              textAlign: TextAlign.center,
+                              controller: controllercoupon,
+                              style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.normal),
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 10, vertical: 5),
+                                isDense: true,
+                                alignLabelWithHint: true,
+                                hintStyle: const TextStyle(
+                                    height: 1,
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.normal),
+                                hintText: "Coupon Code",
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 1),
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.white, width: 1),
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 7,
+                          ),
+                          Container(
+                            width: 120,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadiusDirectional.circular(6),
+                              color: AppColor.backgroundcolor1,
+                            ),
+                            height: 42,
+                            child: MaterialButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadiusDirectional.circular(40)),
+                              onPressed: onPressedapply,
+                              child: Text(
+                                "Apply",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    : Container(
+                        child: Text(
+                          "Congratulations You Get  ${controller.discountcoupon}% Discount",
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                      ))),
         Container(
           margin: EdgeInsets.only(bottom: 5, left: 15, right: 15, top: 5),
           decoration: BoxDecoration(

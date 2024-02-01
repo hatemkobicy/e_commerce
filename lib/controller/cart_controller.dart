@@ -11,12 +11,12 @@ class CartController extends GetxController {
   TextEditingController? controllercoupon;
   List<CartModel> data = [];
   couponModel? couponmodel;
-  int? discountcoupon = 0;
+  int discountcoupon = 0;
   String? couponname;
   AppServices appServices = Get.find();
   late StatusRequest statusRequest;
   CartData cartData = CartData(Get.find());
-  var priceorders;
+  int priceorders = 0;
   var totalcountitems;
 
   viewcart() async {
@@ -46,7 +46,7 @@ class CartController extends GetxController {
 
   resetVarCart() {
     totalcountitems = 0;
-    priceorders = 0.0;
+    priceorders = 0;
   }
 
   getTotalPrice() {
@@ -68,11 +68,12 @@ class CartController extends GetxController {
       if (response['status'] == "success") {
         Map<String, dynamic> datacoupon = response['data'];
         couponmodel = couponModel.fromJson(datacoupon);
-        discountcoupon = couponmodel!.couponDiscount;
+        discountcoupon = couponmodel!.couponDiscount!;
         couponname = couponmodel!.couponName;
         // data.addAll(response['data']);
       } else {
-        statusRequest = StatusRequest.failure;
+        discountcoupon = 0;
+        couponname = null;
       }
     }
     update();

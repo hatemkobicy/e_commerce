@@ -12,6 +12,7 @@ import 'package:e_commerce/view/screens/auth/forgetpassword/resetpassword.dart';
 import 'package:e_commerce/view/screens/auth/signup_screen.dart';
 import 'package:e_commerce/view/screens/auth/forgetpassword/verifycode.dart';
 import 'package:e_commerce/view/screens/cart/cart_screen.dart';
+import 'package:e_commerce/view/screens/checkout_screen.dart';
 import 'package:e_commerce/view/screens/home/home_screen.dart';
 import 'package:e_commerce/view/screens/items.dart';
 import 'package:e_commerce/view/screens/language.dart';
@@ -58,6 +59,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.myfav, page: () => const MyFavorite()),
   GetPage(name: AppRoute.addressview, page: () => const ViewAddres()),
   GetPage(name: AppRoute.addressadd, page: () => const AddAddres()),
+  GetPage(name: AppRoute.checkout, page: () => const CheckOutScreen()),
 ];
 
 // Map<String, Widget Function(BuildContext)> routees = {

@@ -1,11 +1,15 @@
 import 'package:e_commerce/controller/cart_controller.dart';
 import 'package:e_commerce/controller/productdetails_controller.dart';
+import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
+import 'package:e_commerce/core/constants/imageassets.dart';
+import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/view/widgets/cart/custom_listview.dart';
 import 'package:e_commerce/view/widgets/cart/custom_pricenav.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:lottie/lottie.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
@@ -18,6 +22,9 @@ class CartScreen extends StatelessWidget {
     return GetBuilder<CartController>(
       builder: (controller) => Scaffold(
         bottomNavigationBar: CustomPriceNav(
+          onPressed: () {
+            Get.toNamed(AppRoute.checkout);
+          },
           onPressedapply: () {
             cartController.cheakCoupon();
           },
@@ -34,28 +41,33 @@ class CartScreen extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
         backgroundColor: AppColor.primery,
-        body: ListView(
-          children: [
-            ...List.generate(
-              cartController.data.length,
-              (index) => CustomListViewCart(
-                price: '${cartController.data[index].itemsPrice}',
-                title: '${cartController.data[index].itemsName}',
-                itemscount: '${cartController.data[index].countitems}',
-                onPressedadd: () async {
-                  await productcontroller
-                      .addcart(cartController.data[index].itemsId!);
-                  cartController.refreshPage();
-                },
-                onPressedremove: () async {
-                  await productcontroller
-                      .deletecart(cartController.data[index].itemsId!);
-                  cartController.refreshPage();
-                },
-                imagename: '${cartController.data[index].itemsImage}',
-              ),
-            )
-          ],
+        body: GetBuilder<CartController>(
+          builder: (controller) => controller.statusRequest ==
+                  StatusRequest.loading
+              ? Center(child: LottieBuilder.asset(AppImageAsset.loadding))
+              : ListView(
+                  children: [
+                    ...List.generate(
+                      cartController.data.length,
+                      (index) => CustomListViewCart(
+                        price: '${cartController.data[index].itemsPrice}',
+                        title: '${cartController.data[index].itemsName}',
+                        itemscount: '${cartController.data[index].countitems}',
+                        onPressedadd: () async {
+                          await productcontroller
+                              .addcart(cartController.data[index].itemsId!);
+                          cartController.refreshPage();
+                        },
+                        onPressedremove: () async {
+                          await productcontroller
+                              .deletecart(cartController.data[index].itemsId!);
+                          cartController.refreshPage();
+                        },
+                        imagename: '${cartController.data[index].itemsImage}',
+                      ),
+                    )
+                  ],
+                ),
         ),
       ),
     );

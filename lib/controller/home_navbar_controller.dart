@@ -1,4 +1,4 @@
-
+import 'package:e_commerce/controller/productdetails_controller.dart';
 import 'package:e_commerce/view/screens/cart/cart_screen.dart';
 import 'package:e_commerce/view/screens/home/home.dart';
 import 'package:e_commerce/view/screens/settings_screen.dart';
@@ -10,12 +10,13 @@ abstract class HomeNavController extends GetxController {
 }
 
 class HomeNavControllerImp extends HomeNavController {
-
   int correntpage = 0;
 
   List<Widget> listpage = [
     const HomeScreen(),
-    const Center(child: Text("Setting"),),
+    const Center(
+      child: Text("Setting"),
+    ),
     const CartScreen(),
     const SettingScreen(),
   ];
@@ -24,5 +25,9 @@ class HomeNavControllerImp extends HomeNavController {
   changePage(int i) {
     correntpage = i;
     update();
+  }
+
+  deletall() {
+    Get.deleteAll();
   }
 }

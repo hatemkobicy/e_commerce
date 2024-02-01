@@ -1,5 +1,7 @@
 import 'package:e_commerce/controller/home_navbar_controller.dart';
+import 'package:e_commerce/controller/productdetails_controller.dart';
 import 'package:e_commerce/core/constants/color.dart';
+import 'package:e_commerce/core/constants/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -43,6 +45,7 @@ class HomeScreenNav extends StatelessWidget {
                   GButton(
                     onPressed: () {
                       controller.changePage(0);
+                      Get.offAllNamed(AppRoute.home);
                     },
                     icon: Icons.home,
                     text: 'Home',
