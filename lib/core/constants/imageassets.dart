@@ -13,4 +13,6 @@ class AppImageAsset {
   static const String laptop = "assets/images/laptop.png";
   static const String person = "assets/images/person.jpg";
   static const String sale = "assets/images/sale.png";
+  static const String delivery = "assets/images/delivery.png";
+  static const String point = "assets/images/point.png";
 }

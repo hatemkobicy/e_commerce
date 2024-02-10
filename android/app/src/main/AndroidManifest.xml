@@ -6,7 +6,7 @@ package="com.hatemtech.e_commerce">
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
            <meta-data android:name="com.google.android.geo.API_KEY"
-                    android:value="YOUR KEY HERE"/>
+                    android:value="AIzaSyCd9oL60RRXi_6tsp1V7JTz1MB2YCrOsYw"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
