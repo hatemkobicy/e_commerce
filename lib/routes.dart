@@ -2,6 +2,7 @@
 
 import 'package:e_commerce/core/middleware/app_middleware.dart';
 import 'package:e_commerce/view/screens/address/add_addres.dart';
+import 'package:e_commerce/view/screens/address/final_addres.dart';
 import 'package:e_commerce/view/screens/address/view_addres.dart';
 import 'package:e_commerce/view/screens/auth/forgetpassword/success_resetpassword.dart';
 import 'package:e_commerce/view/screens/auth/success_signup.dart';
@@ -60,6 +61,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.addressview, page: () => const ViewAddres()),
   GetPage(name: AppRoute.addressadd, page: () => const AddAddres()),
   GetPage(name: AppRoute.checkout, page: () => const CheckOutScreen()),
+  GetPage(name: AppRoute.finaladdress, page: () => const FinalAddres()),
 ];
 
 // Map<String, Widget Function(BuildContext)> routees = {
