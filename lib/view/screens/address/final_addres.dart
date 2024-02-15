@@ -8,7 +8,8 @@ class FinalAddres extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    FinalAddAddressController controller = Get.put(FinalAddAddressController());
+    FinalAddAddressController controllerpage =
+        Get.put(FinalAddAddressController());
     return Scaffold(
       backgroundColor: AppColor.primery,
       appBar: AppBar(
