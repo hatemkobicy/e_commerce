@@ -37,4 +37,11 @@ class AppLink {
   static String getcountitems = "$server/cart/getcountitems.php";
   //====================coupon============================
   static String checkcoupon = "$server/coupon/checkcoupon.php";
+  //====================address============================
+  static String addAddres = "$server/address/add.php";
+  static String viewAddres = "$server/address/view.php";
+  static String deleteAddres = "$server/address/delete.php";
+  static String editAddres = "$server/address/edit.php";
 }
+  
+
