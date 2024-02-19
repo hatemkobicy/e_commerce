@@ -5,6 +5,7 @@ import 'package:e_commerce/core/functions/handlingdata.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/model/itemsview_model.dart';
 import 'package:e_commerce/data/source/remote/home_data.dart';
+import 'package:e_commerce/data/source/remote/items_data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
@@ -16,13 +17,14 @@ abstract class HomePageController extends SearchController {
 }
 
 class HomePageControllerImp extends HomePageController {
+  ItemsData itemsData = ItemsData(Get.find());
   HomeData homeData = HomeData(Get.find());
   AppServices appServices = Get.find();
   List data = [];
   List categories = [];
   List items = [];
   String? username;
- late StatusRequest statusRequest;
+  late StatusRequest statusRequest;
 
   @override
   initialData() {
@@ -37,7 +39,6 @@ class HomePageControllerImp extends HomePageController {
     super.onInit();
   }
 
- 
   @override
   getdata() async {
     statusRequest = StatusRequest.loading;
@@ -55,7 +56,6 @@ class HomePageControllerImp extends HomePageController {
     update();
   }
 
-  
   @override
   gotoprouductdetiles(itemsModel) {
     Get.toNamed(AppRoute.productdetails, arguments: {"itemsmodel": itemsModel});
@@ -71,14 +71,12 @@ class HomePageControllerImp extends HomePageController {
   }
 }
 
-
-class SearchController extends GetxController{
-  TextEditingController search =TextEditingController();
+class SearchController extends GetxController {
+  TextEditingController search = TextEditingController();
   bool isSearch = false;
- late StatusRequest statusRequest;
+  late StatusRequest statusRequest;
   HomeData homeData = HomeData(Get.find());
   List<ItemsModel> listdata = [];
-
 
   cheaksearch(val) {
     if (val == "") {
@@ -113,5 +111,4 @@ class SearchController extends GetxController{
     }
     update();
   }
-
 }

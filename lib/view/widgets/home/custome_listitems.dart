@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 class CustomeItemsList extends GetView<HomePageControllerImp> {
   const CustomeItemsList({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +17,7 @@ class CustomeItemsList extends GetView<HomePageControllerImp> {
       child: ListView.builder(
         itemCount: controller.items.length,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, i) {
+        itemBuilder: ( context, i) {
           return ItemsHome(
             itemsModel: ItemsModel.fromJson(controller.items[i]),
           );

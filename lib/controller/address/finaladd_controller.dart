@@ -16,8 +16,6 @@ class FinalAddAddressController extends GetxController {
 
   Addressdata addressdata = Addressdata(Get.find());
 
-  
-
   AppServices appServices = Get.find();
 
   initialData() {

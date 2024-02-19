@@ -33,9 +33,9 @@ class CustomeCardFav extends GetView<MyfavoriteController> {
               controller.deletefav(favoritemodel.favoriteId!);
             },
             icon: Icon(
-              Icons.delete_forever_outlined,
+              Icons.delete_sweep_outlined,
               size: 35,
-              color: Colors.red,
+              color: Color.fromARGB(138, 218, 6, 6),
             ),
           ),
         ],
