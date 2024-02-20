@@ -16,7 +16,26 @@ class CheckOutScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.primery,
         foregroundColor: Colors.white,
-        title: const Text('Title'),
+        title: const Text('Make Some Choices'),
+      ),
+      bottomNavigationBar: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadiusDirectional.circular(40),
+          color: AppColor.backgroundcolor1,
+        ),
+        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        height: 60,
+        child: MaterialButton(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadiusDirectional.circular(40)),
+          onPressed: () {},
+          child: Text(
+            "CheakOut",
+            style: TextStyle(
+                color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
       body: Container(
         child: ListView(
@@ -132,13 +151,64 @@ class CheckOutScreen extends StatelessWidget {
                         Text(
                           "Pickup point",
                           style: TextStyle(color: Colors.white, fontSize: 16),
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ],
               ),
-            )
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Center(
+              child: Text(
+                "Choose Your Addres ",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Card(
+              color: AppColor.onboardingcolor,
+              margin: EdgeInsets.all(10),
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: ListTile(
+                  subtitle: Text(
+                    "City : //",
+                  ),
+                  title: Text("//"),
+                  trailing: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.delete_sweep_outlined,
+                      size: 35,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Card(
+              color: AppColor.onboardingcolor,
+              margin: EdgeInsets.all(10),
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: ListTile(
+                  subtitle: Text(
+                    "City : //",
+                  ),
+                  title: Text("//"),
+                  trailing: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.delete_sweep_outlined,
+                      size: 35,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
