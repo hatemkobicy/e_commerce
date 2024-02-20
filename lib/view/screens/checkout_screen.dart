@@ -2,7 +2,10 @@
 
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
-import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:e_commerce/view/widgets/cheakout/Card_address.dart';
+import 'package:e_commerce/view/widgets/cheakout/card_delivery.dart';
+import 'package:e_commerce/view/widgets/cheakout/card_paymentmethod.dart';
+import 'package:e_commerce/view/widgets/cheakout/Cash_patmentmethod.dart';
 import 'package:flutter/material.dart';
 
 class CheckOutScreen extends StatelessWidget {
@@ -51,55 +54,11 @@ class CheckOutScreen extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 60),
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 60),
-              decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 83, 219, 253),
-                  borderRadius: BorderRadius.circular(10)),
-              child: const Row(
-                children: [
-                  Text(
-                    "Payment Cash       ",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Icon(
-                    Icons.attach_money_rounded,
-                    color: Color.fromARGB(204, 21, 53, 100),
-                  ),
-                ],
-              ),
-            ),
+            CashPaymentMethod(isActive: true,),
             const SizedBox(
               height: 15,
             ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 60),
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 60),
-              decoration: BoxDecoration(
-                  color: AppColor.backgroundcolor1,
-                  borderRadius: BorderRadius.circular(10)),
-              child: Row(
-                children: const [
-                  Text(
-                    "Payment Cards      ",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Icon(
-                    Icons.payment_outlined,
-                    color: Color.fromARGB(255, 197, 244, 54),
-                  ),
-                ],
-              ),
-            ),
+            CardPaymentMethod(isActive: false,),
             SizedBox(
               height: 15,
             ),
@@ -118,43 +77,8 @@ class CheckOutScreen extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 22),
               child: Row(
                 children: [
-                  Container(
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          AppImageAsset.delivery,
-                          width: 160,
-                        ),
-                        Text(
-                          "Delivery",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: AppColor.onboardingcolor,
-                        border: Border.all(
-                            color: AppColor.onboardingcolor, width: 2),
-                        borderRadius: BorderRadius.circular(10)),
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      children: [
-                        Image.asset(
-                          AppImageAsset.point,
-                          width: 160,
-                        ),
-                        Text(
-                          "Pickup point",
-                          style: TextStyle(color: Colors.white, fontSize: 16),
-                        ),
-                      ],
-                    ),
-                  ),
+                  CardDelivery(image: AppImageAsset.delivery, text: "Delivery",isActive: false,),
+                  CardDelivery(image: AppImageAsset.point, text: "Pickup point", isActive: true)
                 ],
               ),
             ),
@@ -169,46 +93,9 @@ class CheckOutScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Card(
-              color: AppColor.onboardingcolor,
-              margin: EdgeInsets.all(10),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: ListTile(
-                  subtitle: Text(
-                    "City : //",
-                  ),
-                  title: Text("//"),
-                  trailing: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.delete_sweep_outlined,
-                      size: 35,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Card(
-              color: AppColor.onboardingcolor,
-              margin: EdgeInsets.all(10),
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: ListTile(
-                  subtitle: Text(
-                    "City : //",
-                  ),
-                  title: Text("//"),
-                  trailing: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.delete_sweep_outlined,
-                      size: 35,
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            CardAddress(name: 'name', suptitle: "suptitle", isActive: true,),
+            CardAddress(name: 'name', suptitle: "suptitle", isActive: false,),
+            
           ],
         ),
       ),
