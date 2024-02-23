@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 
 class CashPaymentMethod extends StatelessWidget {
   final bool isActive;
-  const CashPaymentMethod({super.key, required this.isActive});
+  final String text;
+  final IconData icon1;
+  const CashPaymentMethod(
+      {super.key, required this.isActive, required this.text, required this.icon1});
 
   @override
   Widget build(BuildContext context) {
@@ -11,19 +14,21 @@ class CashPaymentMethod extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 60),
       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 60),
       decoration: BoxDecoration(
-          color:isActive==true? const Color.fromARGB(255, 83, 219, 253):AppColor.backgroundcolor1,
+          color: isActive == true
+              ? const Color.fromARGB(255, 83, 219, 253)
+              : AppColor.backgroundcolor1,
           borderRadius: BorderRadius.circular(10)),
-      child: const Row(
+      child: Row(
         children: [
           Text(
-            "Payment Cash       ",
+            text,
             textAlign: TextAlign.center,
             style: TextStyle(
                 color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
           ),
           Icon(
-            Icons.attach_money_rounded,
-            color: Color.fromARGB(204, 21, 53, 100),
+            icon1,
+            color: Color.fromARGB(255, 221, 255, 4),
           ),
         ],
       ),

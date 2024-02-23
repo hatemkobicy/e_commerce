@@ -17,22 +17,20 @@ class CardAddress extends StatelessWidget {
       color: isActive == true
           ? const Color.fromARGB(255, 83, 219, 253)
           : AppColor.backgroundcolor1,
-      margin: EdgeInsets.all(10),
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: ListTile(
-          subtitle: Text(
-            suptitle,
-            style: TextStyle(
-                color: isActive == true ? Colors.black : Colors.white,
-                fontSize: 14),
-          ),
-          title: Text(
-            name,
-            style: TextStyle(
-                color: isActive == true ? Colors.black : Colors.white,
-                fontSize: 16),
-          ),
+      margin: EdgeInsets.only(top: 10,right: 10,left: 10),
+      child: ListTile(
+        
+        subtitle: Text(
+          suptitle,
+          style: TextStyle(
+              color: isActive == true ? Colors.black : Colors.white,
+              fontSize: 14),
+        ),
+        title: Text(
+          name,
+          style: TextStyle(
+              color: isActive == true ? Colors.black : Colors.white,
+              fontSize: 16),
         ),
       ),
     );
