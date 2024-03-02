@@ -3,12 +3,10 @@ import 'package:e_commerce/controller/productdetails_controller.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
-import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/view/widgets/cart/custom_listview.dart';
 import 'package:e_commerce/view/widgets/cart/custom_pricenav.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:lottie/lottie.dart';
 
 class CartScreen extends StatelessWidget {
@@ -23,7 +21,7 @@ class CartScreen extends StatelessWidget {
       builder: (controller) => Scaffold(
         bottomNavigationBar: CustomPriceNav(
           onPressed: () {
-            Get.toNamed(AppRoute.checkout);
+            cartController.goToCheckout();
           },
           onPressedapply: () {
             cartController.cheakCoupon();
@@ -32,7 +30,7 @@ class CartScreen extends StatelessWidget {
           price: '${cartController.priceorders}\$',
           discount: "${cartController.discountcoupon}%",
           totalprice: '${cartController.getTotalPrice()}\$',
-          message: '${controller.totalcountitems}',
+          message: '${cartController.totalcountitems}',
         ),
         appBar: AppBar(
           title: const Text("My Cart"),

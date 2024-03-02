@@ -117,7 +117,7 @@ class CustomPriceNav extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      child: Text(
+                      child:  Text(
                         message,
                         style: TextStyle(fontSize: 16, color: Colors.white),
                       ),

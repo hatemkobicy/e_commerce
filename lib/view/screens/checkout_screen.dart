@@ -36,7 +36,9 @@ class CheckOutScreen extends StatelessWidget {
         child: MaterialButton(
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadiusDirectional.circular(40)),
-          onPressed: () {},
+          onPressed: () {
+            controller.checkout();
+          },
           child: Text(
             "CheckOut",
             style: TextStyle(
@@ -149,26 +151,25 @@ class CheckOutScreen extends StatelessWidget {
                           ),
                         ),
                         ...List.generate(
-                            controller.dataAddres.length,
-                            (index) => InkWell(
-                                  splashColor:
-                                      const Color.fromARGB(0, 255, 193, 7),
-                                  onTap: () {
-                                    controller.chooseAddres(controller
-                                        .dataAddres[index].addressId!);
-                                  },
-                                  child: CardAddress(
-                                    name:
-                                        '${controller.dataAddres[index].addressName}',
-                                    suptitle:
-                                        '${controller.dataAddres[index].addressCity}\n${controller.dataAddres[index].addressStreet}',
-                                    isActive: controller.addresID ==
-                                            controller
-                                                .dataAddres[index].addressId
-                                        ? true
-                                        : false,
-                                  ),
-                                )),
+                          controller.dataAddres.length,
+                          (index) => InkWell(
+                            splashColor: const Color.fromARGB(0, 255, 193, 7),
+                            onTap: () {
+                              controller.chooseAddres(
+                                  controller.dataAddres[index].addressId!);
+                            },
+                            child: CardAddress(
+                              name:
+                                  '${controller.dataAddres[index].addressName}',
+                              suptitle:
+                                  '${controller.dataAddres[index].addressCity}\n${controller.dataAddres[index].addressStreet}',
+                              isActive: controller.addresID ==
+                                      controller.dataAddres[index].addressId
+                                  ? true
+                                  : false,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                 ],
