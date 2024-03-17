@@ -60,6 +60,19 @@ class SettingScreen extends StatelessWidget {
                   ),
                   ListTile(
                     onTap: () {
+                      Get.toNamed(AppRoute.orderspending);
+                    },
+                    title: Text("My Orders"),
+                    trailing: Icon(
+                      Icons.shopping_cart_checkout_outlined,
+                      color: AppColor.primery,
+                    ),
+                  ),
+                  const Divider(
+                    color: AppColor.primery,
+                  ),
+                  ListTile(
+                    onTap: () {
                       Get.toNamed(AppRoute.addressview);
                     },
                     title: Text("My Adress"),

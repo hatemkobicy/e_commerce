@@ -19,6 +19,7 @@ import 'package:e_commerce/view/screens/items.dart';
 import 'package:e_commerce/view/screens/language.dart';
 import 'package:e_commerce/view/screens/myfav_screen.dart';
 import 'package:e_commerce/view/screens/onboarding.dart';
+import 'package:e_commerce/view/screens/orders/orders_pending.dart';
 import 'package:e_commerce/view/screens/product_details.dart';
 import 'package:e_commerce/view/screens/auth/verifycodesignup.dart';
 import 'package:get/get.dart';
@@ -62,6 +63,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.addressadd, page: () => const AddAddres()),
   GetPage(name: AppRoute.checkout, page: () => const CheckOutScreen()),
   GetPage(name: AppRoute.finaladdress, page: () => const FinalAddres()),
+  GetPage(name: AppRoute.orderspending, page: () => const OrdersPending()),
 ];
 
 // Map<String, Widget Function(BuildContext)> routees = {

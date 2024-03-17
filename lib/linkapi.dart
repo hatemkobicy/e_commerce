@@ -44,6 +44,7 @@ class AppLink {
   static String editAddres = "$server/address/edit.php";
   //====================cheakout============================
   static String checkout = "$server/orders/add_orders.php";
+  static String ordersPending = "$server/orders/view_orders.php";
 
 }
   
