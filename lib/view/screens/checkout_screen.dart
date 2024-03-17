@@ -66,11 +66,11 @@ class CheckOutScreen extends StatelessWidget {
                   InkWell(
                       splashColor: AppColor.primery.withOpacity(0),
                       onTap: () {
-                        controller.choosePaymentMethod("cash");
+                        controller.choosePaymentMethod("0"); // cash
                       },
                       child: CashPaymentMethod(
                         isActive:
-                            controller.paymentMethod == "cash" ? true : false,
+                            controller.paymentMethod == "0" ? true : false,
                         text: "Payment Cash       ",
                         icon1: Icons.attach_money_rounded,
                       )),
@@ -80,11 +80,10 @@ class CheckOutScreen extends StatelessWidget {
                   InkWell(
                     splashColor: AppColor.primery.withOpacity(0),
                     onTap: () {
-                      controller.choosePaymentMethod("card");
+                      controller.choosePaymentMethod("1"); //card
                     },
                     child: CashPaymentMethod(
-                      isActive:
-                          controller.paymentMethod == "card" ? true : false,
+                      isActive: controller.paymentMethod == "1" ? true : false,
                       text: 'Payment Cards      ',
                       icon1: Icons.credit_card,
                     ),
@@ -110,27 +109,26 @@ class CheckOutScreen extends StatelessWidget {
                         InkWell(
                           splashColor: AppColor.primery.withOpacity(0),
                           onTap: () {
-                            controller.chooseDeliveryType("Delivery");
+                            controller.chooseDeliveryType("0"); //0=> Delivery
                           },
                           child: CardDelivery(
                             image: AppImageAsset.delivery,
                             text: "Delivery",
-                            isActive: controller.deliveryType == "Delivery"
-                                ? true
-                                : false,
+                            isActive:
+                                controller.deliveryType == "0" ? true : false,
                           ),
                         ),
                         InkWell(
                           splashColor: const Color.fromARGB(0, 1, 60, 132),
                           onTap: () {
-                            controller.chooseDeliveryType("Pickup point");
+                            controller
+                                .chooseDeliveryType("1"); //1=> Pickup Point
                           },
                           child: CardDelivery(
                             image: AppImageAsset.point,
                             text: "Pickup point",
-                            isActive: controller.deliveryType == "Pickup point"
-                                ? true
-                                : false,
+                            isActive:
+                                controller.deliveryType == "1" ? true : false,
                           ),
                         )
                       ],
@@ -139,7 +137,7 @@ class CheckOutScreen extends StatelessWidget {
                   SizedBox(
                     height: 15,
                   ),
-                  if (controller.deliveryType == "Delivery")
+                  if (controller.deliveryType == "0")
                     Column(
                       children: [
                         Center(

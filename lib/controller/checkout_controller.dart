@@ -1,4 +1,5 @@
 import 'package:e_commerce/core/class/statusrequest.dart';
+import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/core/functions/handlingdata.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/model/address_model.dart';
@@ -13,10 +14,11 @@ class CheckOutController extends GetxController {
   AppServices appServices = Get.find();
   String? paymentMethod;
   String? deliveryType;
-  int? addresID;
+  int addresID = 0;
   List<AddressModel> dataAddres = [];
   late String couponid;
   late String priceorders;
+  late String coupondiscount;
 
   choosePaymentMethod(String val) {
     paymentMethod = val;
@@ -51,7 +53,13 @@ class CheckOutController extends GetxController {
   }
 
   checkout() async {
+    if (paymentMethod == null)
+      return Get.snackbar("Error", "Please Select a Payment Methods");
+    if (deliveryType == null)
+      return Get.snackbar("Error", "Please Select a Shipped Method");
+
     statusRequest = StatusRequest.loading;
+    update();
     Map data = {
       "usersid": appServices.sharedPreferences.getInt("id")!.toString(),
       "addressid": addresID.toString(),
@@ -59,6 +67,7 @@ class CheckOutController extends GetxController {
       "pricedelivery": "40",
       "ordersprice": priceorders,
       "couponid": couponid,
+      "coupondiscount": coupondiscount.toString(),
       "paymentmethod": paymentMethod.toString(),
     };
     var response = await checkoutData.checkout(data);
@@ -66,9 +75,11 @@ class CheckOutController extends GetxController {
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
-        print("doneeeee");
+        Get.offAllNamed(AppRoute.homescreen);
+        Get.snackbar("Success", "the order is done we sent email to you");
       } else {
-        statusRequest = StatusRequest.failure;
+        statusRequest = StatusRequest.none;
+        Get.snackbar("Error", "Please Try Again");
       }
     }
     update();
@@ -78,6 +89,8 @@ class CheckOutController extends GetxController {
   void onInit() {
     couponid = Get.arguments['couponid'];
     priceorders = Get.arguments['priceordrs'];
+    coupondiscount = Get.arguments['discountcoupon'];
+    
     getShipAddress();
     super.onInit();
   }

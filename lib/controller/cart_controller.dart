@@ -19,7 +19,7 @@ class CartController extends GetxController {
   late StatusRequest statusRequest;
   CartData cartData = CartData(Get.find());
   int priceorders = 0;
-  var totalcountitems;
+  String totalcountitems = "0";
 
   viewcart() async {
     statusRequest = StatusRequest.loading;
@@ -36,7 +36,7 @@ class CartController extends GetxController {
           Map dataresponescountprice = response['countprice'];
           data.clear();
           data.addAll(datarespones.map((e) => CartModel.fromJson(e)));
-          totalcountitems = dataresponescountprice['totalcount'];
+          totalcountitems = dataresponescountprice['totalcount'].toString();
           priceorders = dataresponescountprice['totalprice'];
         }
       } else {
@@ -51,11 +51,12 @@ class CartController extends GetxController {
     Get.toNamed(AppRoute.checkout, arguments: {
       "couponid": couponid ?? "0",
       "priceordrs": priceorders.toString(),
+      "discountcoupon": discountcoupon.toString(),
     });
   }
 
   resetVarCart() {
-    totalcountitems = 0;
+    totalcountitems = "0";
     priceorders = 0;
   }
 
@@ -86,6 +87,7 @@ class CartController extends GetxController {
         discountcoupon = 0;
         couponname = null;
         couponid = null;
+        Get.snackbar("Error", "The Coupon is uncorrect",colorText: Colors.white,);
       }
     }
     update();
