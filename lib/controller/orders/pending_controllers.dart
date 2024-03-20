@@ -12,6 +12,34 @@ class OrdersPendingController extends GetxController {
   List<OrdersModel> data = [];
   AppServices appServices = Get.find();
 
+  String printTypeOrder(int val) {
+    if (val == 0) {
+      return "Delivery";
+    } else {
+      return "Pickup Point";
+    }
+  }
+
+  String printpaymentmethod(int val) {
+    if (val == 0) {
+      return "Cash";
+    } else {
+      return "Card";
+    }
+  }
+
+  String printorderstatus(int val) {
+    if (val == 0) {
+      return "Waitting Approve";
+    } else if (val == 1) {
+      return "Prpearing";
+    } else if (val == 2) {
+      return "On The Way";
+    } else {
+      return "Delivered";
+    }
+  }
+
   getOrders() async {
     data.clear();
     statusRequest = StatusRequest.loading;
