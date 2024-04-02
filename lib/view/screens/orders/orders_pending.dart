@@ -2,6 +2,7 @@ import 'package:e_commerce/controller/orders/pending_controllers.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
+import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/data/model/orders_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -82,7 +83,11 @@ class CardOrderList extends GetView<OrdersPendingController> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.toNamed(AppRoute.ordersDetails, arguments: {
+                      "ordersmodel":listdata,
+                    });
+                  },
                   child: Text(
                     "Details",
                     style: TextStyle(

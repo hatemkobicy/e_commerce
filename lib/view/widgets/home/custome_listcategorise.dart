@@ -12,9 +12,12 @@ class CustomeCategoreiseList extends GetView<HomePageControllerImp> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      height: 100,
+      height: 110,
       child: ListView.separated(
+        physics: const AlwaysScrollableScrollPhysics(),
+        padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 20),
         separatorBuilder: (BuildContext context, int index) => const SizedBox(
           width: 8,
         ),
@@ -66,7 +69,8 @@ class Categorise extends GetView<HomePageControllerImp> {
           ),
           Text(
             "${categoriesModel.categoriesName}",
-            style: const TextStyle(color: Colors.white, fontSize: 14),
+            style: const TextStyle(color: Colors.white, fontSize: 14,),
+            textAlign: TextAlign.center,
           ),
         ],
       ),
