@@ -1,8 +1,11 @@
 import 'package:e_commerce/controller/orders/details_controller.dart';
+import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
+import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:lottie/lottie.dart';
 
 class OrdersDetails extends StatelessWidget {
   const OrdersDetails({super.key});
@@ -19,124 +22,149 @@ class OrdersDetails extends StatelessWidget {
         title: const Text('Orders Details'),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        child: ListView(
-          children: [
-            Card(
-              color: AppColor.backgroundcolor1,
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Table(
-                      children: [
-                        TableRow(children: [
-                          Text(
-                            "Item",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: AppColor.primery,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
+          padding: EdgeInsets.symmetric(horizontal: 20),
+          child: GetBuilder<OrdersDetailsController>(
+            builder: (controller) => controller.statusRequest ==
+                    StatusRequest.loading
+                ? Center(child: LottieBuilder.asset(AppImageAsset.loadding))
+                : ListView(
+                    children: [
+                      Card(
+                        color: AppColor.backgroundcolor1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Table(
+                                defaultVerticalAlignment:
+                                    TableCellVerticalAlignment.middle,
+                                children: [
+                                  TableRow(
+                                    decoration: UnderlineTabIndicator(
+                                        borderSide: BorderSide(
+                                            color: AppColor.primery, width: 3)),
+                                    children: [
+                                      Text(
+                                        "Item",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: AppColor.primery,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        "Count",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: AppColor.primery,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text(
+                                        "Price",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: AppColor.primery,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                    ],
+                                  ),
+                                  ...List.generate(
+                                    controller.data.length,
+                                    (index) => TableRow(
+                                      decoration: UnderlineTabIndicator(
+                                          borderSide: BorderSide(
+                                              color: AppColor.primery)),
+                                      children: [
+                                        Text(
+                                          "${controller.data[index].itemsName}",
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                        Text(
+                                          "${controller.data[index].countitems}",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 16),
+                                        ),
+                                        Text(
+                                          "${controller.data[index].itemsPrice}\$",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 16),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                              Container(
+                                padding: EdgeInsets.all(10),
+                                child: Text(
+                                  "Total Price : ${controller.ordersModel.ordersTotalprice}\$",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
                           ),
-                          Text(
-                            "Count",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: AppColor.primery,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "Price",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: AppColor.primery,
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ]),
-                        TableRow(
-                          children: [
-                            Text(
-                              "Lenovo ideapad gaming 3",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
+                        ),
+                      ),
+                      if (controller.ordersModel.ordersType == 0)
+                        Card(
+                          color: AppColor.backgroundcolor1,
+                          child: Container(
+                            child: ListTile(
+                              title: Text(
+                                "Shipping Addres :",
+                                style: TextStyle(color: AppColor.primery),
+                              ),
+                              subtitle: Text(
+                                "${controller.ordersModel.addressCity} ${controller.ordersModel.addressStreet!}",
+                                style: TextStyle(color: Colors.white),
                               ),
                             ),
-                            Text(
-                              "2",
-                              textAlign: TextAlign.center,
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
-                            ),
-                            Text(
-                              "1000\$",
-                              textAlign: TextAlign.center,
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 16),
-                            ),
-                          ],
+                          ),
                         ),
-                      ],
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      child: Text(
-                        "Total Price : 2000\$",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold),
+                      SizedBox(
+                        height: 5,
                       ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Card(
-              color: AppColor.backgroundcolor1,
-              child: Container(
-                child: ListTile(
-                  title: Text(
-                    "Shipping Addres :",
-                    style: TextStyle(color: AppColor.primery),
+                      if (controller.ordersModel.ordersType == 0)
+                        Container(
+                          decoration: BoxDecoration(
+                              color: AppColor.backgroundcolor1,
+                              borderRadius: BorderRadius.circular(20)),
+                          height: 300,
+                          width: double.infinity,
+                          padding: EdgeInsets.all(10),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: GoogleMap(
+                              markers: controller.markers.toSet(),
+                              mapType: MapType.normal,
+                              initialCameraPosition: controller.kGooglePlex!,
+                              onMapCreated:
+                                  (GoogleMapController controllermap) {
+                                controller.completercontroller!
+                                    .complete(controllermap);
+                              },
+                            ),
+                          ),
+                        ),
+                    ],
                   ),
-                  subtitle: Text(
-                    "Damascous ",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Container(
-              decoration: BoxDecoration(
-                  color: AppColor.backgroundcolor1,
-                  borderRadius: BorderRadius.circular(20)),
-              height: 300,
-              width: double.infinity,
-              padding: EdgeInsets.all(10),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: GoogleMap(
-                  markers: controller.markers.toSet(),
-                  mapType: MapType.normal,
-                  initialCameraPosition: controller.kGooglePlex!,
-                  onMapCreated: (GoogleMapController controllermap) {
-                    controller.completercontroller!.complete(controllermap);
-                  },
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+          )),
     );
   }
 }

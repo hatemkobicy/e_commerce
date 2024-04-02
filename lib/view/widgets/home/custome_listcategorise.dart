@@ -17,7 +17,7 @@ class CustomeCategoreiseList extends GetView<HomePageControllerImp> {
       height: 110,
       child: ListView.separated(
         physics: const AlwaysScrollableScrollPhysics(),
-        padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 15),
         separatorBuilder: (BuildContext context, int index) => const SizedBox(
           width: 8,
         ),
