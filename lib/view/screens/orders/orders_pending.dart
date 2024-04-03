@@ -23,7 +23,7 @@ class OrdersPending extends StatelessWidget {
         title: const Text('My Orders'),
       ),
       body: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: GetBuilder<OrdersPendingController>(
           builder: (controller) =>
               controller.statusRequest == StatusRequest.loading
@@ -49,7 +49,7 @@ class CardOrderList extends GetView<OrdersPendingController> {
     return Card(
       color: AppColor.onboardingcolor,
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -58,12 +58,12 @@ class CardOrderList extends GetView<OrdersPendingController> {
               children: [
                 Text(
                   "Order Number : ${listdata.ordersId}",
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                 ),
                 Text("${controller.printorderstatus(listdata.oedersStatus!)}")
               ],
             ),
-            Divider(
+            const Divider(
               color: Colors.white,
             ),
             Text(
@@ -72,32 +72,50 @@ class CardOrderList extends GetView<OrdersPendingController> {
             Text("Delivery Price : ${listdata.ordersPricedelivery}\$"),
             Text(
                 "Payment Method : ${controller.printpaymentmethod(listdata.ordersPaymentmethod!)}"),
-            Divider(
+            const Divider(
               color: Colors.white,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   "Total Price : ${listdata.ordersTotalprice}\$",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 TextButton(
                   onPressed: () {
                     Get.toNamed(AppRoute.ordersDetails, arguments: {
-                      "ordersmodel":listdata,
+                      "ordersmodel": listdata,
                     });
                   },
-                  child: Text(
+                  child: const Text(
                     "Details",
                     style: TextStyle(
                         color: Color.fromARGB(255, 27, 7, 247),
                         fontSize: 16,
-                        fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic,
                         decoration: TextDecoration.underline),
                   ),
                 ),
+                const SizedBox(
+                  width: 110,
+                ),
+                if (listdata.oedersStatus! == 0)
+                  TextButton(
+                    onPressed: () {
+                      controller.deleteOrders(listdata.ordersId);
+                    },
+                    child: const Text(
+                      "Delete",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          fontStyle: FontStyle.italic,
+                          decoration: TextDecoration.underline),
+                    ),
+                  ),
               ],
             ),
           ],

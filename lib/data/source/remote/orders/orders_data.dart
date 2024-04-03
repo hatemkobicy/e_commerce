@@ -10,4 +10,10 @@ class OrdersPendingData {
         .postData(AppLink.ordersPending, {"usersid": usersid.toString()});
     return response.fold((l) => l, (r) => r);
   }
+
+  deleteData(int id) async {
+    var response =
+        await crud.postData(AppLink.ordersDelete, {"id": id.toString()});
+    return response.fold((l) => l, (r) => r);
+  }
 }

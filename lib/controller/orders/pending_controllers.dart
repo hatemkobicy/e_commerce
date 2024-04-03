@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 class OrdersPendingController extends GetxController {
   OrdersPendingData ordersPendingData = OrdersPendingData(Get.find());
   late StatusRequest statusRequest;
-
+  late OrdersModel ordersModel;
   List<OrdersModel> data = [];
   AppServices appServices = Get.find();
 
@@ -58,9 +58,29 @@ class OrdersPendingController extends GetxController {
     update();
   }
 
+  deleteOrders(id) async {
+    data.clear();
+    statusRequest = StatusRequest.loading;
+    var response = await ordersPendingData.deleteData(id);
+    print("===================== $response control");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        refreshOrders();
+      } else {
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+
+  refreshOrders() {
+    getOrders();
+  }
+
   @override
   void onInit() {
-    getOrders();
+    refreshOrders();
     super.onInit();
   }
 }
