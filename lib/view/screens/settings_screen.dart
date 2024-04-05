@@ -4,6 +4,7 @@ import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -96,7 +97,9 @@ class SettingScreen extends StatelessWidget {
                     color: AppColor.primery,
                   ),
                   ListTile(
-                    onTap: () {},
+                    onTap: () {
+                      launchUrl(Uri.parse("https://wa.me/qr/4JACY3QPQA3RE1"));
+                    },
                     title: Text("Contact Us"),
                     trailing: Icon(
                       Icons.contact_support,

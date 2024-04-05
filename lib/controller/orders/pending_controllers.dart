@@ -30,9 +30,9 @@ class OrdersPendingController extends GetxController {
 
   String printorderstatus(int val) {
     if (val == 0) {
-      return "Waitting Approve";
+      return "Waitting Approve...";
     } else if (val == 1) {
-      return "Prpearing";
+      return "Preparing...";
     } else if (val == 2) {
       return "On The Way";
     } else {

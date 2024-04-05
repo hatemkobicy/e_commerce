@@ -3,6 +3,7 @@ import 'package:e_commerce/core/functions/handlingdata.dart';
 import 'package:e_commerce/core/services/services.dart';
 import 'package:e_commerce/data/model/address_model.dart';
 import 'package:e_commerce/data/source/remote/addresData.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class AddressViewController extends GetxController {
@@ -23,6 +24,7 @@ class AddressViewController extends GetxController {
         data.addAll(listdata.map((e) => AddressModel.fromJson(e)));
       } else {
         statusRequest = StatusRequest.failure;
+        return Center(child: Text("No Data"));
       }
     }
     update();

@@ -99,7 +99,7 @@ class CardOrderList extends GetView<OrdersPendingController> {
                   ),
                 ),
                 const SizedBox(
-                  width: 110,
+                  width: 70,
                 ),
                 if (listdata.oedersStatus! == 0)
                   TextButton(

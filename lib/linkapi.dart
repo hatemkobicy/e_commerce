@@ -47,6 +47,9 @@ class AppLink {
   static String ordersPending = "$server/orders/view_orders.php";
   static String ordersDetails = "$server/orders/details.php";
   static String ordersDelete = "$server/orders/delete_orders.php";
+  //====================offers============================
+
+  static String offers = "$server/offers/offers.php";
 
 }
   

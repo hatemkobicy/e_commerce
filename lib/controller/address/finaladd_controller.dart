@@ -44,6 +44,7 @@ class FinalAddAddressController extends GetxController {
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         Get.offAllNamed(AppRoute.homescreen);
+        Get.snackbar("Done", "The address has been added successfully");
       } else {
         statusRequest = StatusRequest.failure;
       }

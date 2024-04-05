@@ -11,8 +11,8 @@ class AddAddressController extends GetxController {
   Position? postion;
   CameraPosition? kGooglePlex;
   List<Marker> markers = [];
-  double? lat;
-  double? long;
+  double lat =22.000;
+  double long = 22.000;
 
   addMarker(LatLng latLng) {
     markers.clear();
