@@ -1,6 +1,7 @@
 import 'package:e_commerce/controller/productdetails_controller.dart';
 import 'package:e_commerce/view/screens/cart/cart_screen.dart';
 import 'package:e_commerce/view/screens/home/home.dart';
+import 'package:e_commerce/view/screens/offers_screen.dart';
 import 'package:e_commerce/view/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,9 +15,7 @@ class HomeNavControllerImp extends HomeNavController {
 
   List<Widget> listpage = [
     const HomeScreen(),
-    const Center(
-      child: Text("Setting"),
-    ),
+    const OffersScreen(),
     const CartScreen(),
     const SettingScreen(),
   ];

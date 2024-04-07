@@ -59,8 +59,8 @@ class HomeScreenNav extends StatelessWidget {
                       onPressed: () {
                         controller.changePage(1);
                       },
-                      icon: Icons.person,
-                      text: 'Profile',
+                      icon: Icons.card_giftcard,
+                      text: 'Offers',
                     ),
                     GButton(
                       onPressed: () {
