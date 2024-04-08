@@ -5,11 +5,13 @@ import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/data/model/itemsview_model.dart';
+import 'package:e_commerce/view/widgets/home/bestoffers_listitems.dart';
 import 'package:e_commerce/view/widgets/home/custome_card.dart';
 import 'package:e_commerce/view/widgets/home/custome_hometext.dart';
 import 'package:e_commerce/view/widgets/home/custome_listcategorise.dart';
 import 'package:e_commerce/view/widgets/home/custome_listitems.dart';
 import 'package:e_commerce/view/widgets/home/custome_searchbar.dart';
+import 'package:e_commerce/view/widgets/home/custome_slider.dart';
 import 'package:e_commerce/view/widgets/searche_listitems.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -44,15 +46,13 @@ class HomeScreen extends StatelessWidget {
                       ? const Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            CustomeCardSlide(
-                                maintext: "A Summer Surprise ",
-                                subtext: "Cash Back 30%"),
+                            CustomeImageSlider(),
                             CustomeCategoreiseList(),
                             SizedBox(
                               height: 10,
                             ),
                             CustomeHomeText(
-                              hometext: 'Product For You',
+                              hometext: 'Top Selling',
                             ),
                             SizedBox(
                               height: 10,
@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                             CustomeHomeText(
                               hometext: 'Best Offers',
                             ),
-                            CustomeItemsList(),
+                            BestOffersItemsList(),
                           ],
                         )
                       : ListItemsSearch(listdatamodel: controller.listdata)

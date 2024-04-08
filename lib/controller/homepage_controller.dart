@@ -23,6 +23,7 @@ class HomePageControllerImp extends HomePageController {
   List data = [];
   List categories = [];
   List items = [];
+  List best = [];
   String? username;
   late StatusRequest statusRequest;
 
@@ -49,6 +50,8 @@ class HomePageControllerImp extends HomePageController {
       if (response['status'] == "success") {
         categories.addAll(response['categories']['data']);
         items.addAll(response['items']['data']);
+        best.addAll(response['best']['data']);
+        
       } else {
         statusRequest = StatusRequest.failure;
       }

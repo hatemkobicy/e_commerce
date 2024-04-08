@@ -8,3 +8,11 @@ class OnBoardingModel {
     required this.body,
   });
 }
+
+class SliderModel {
+  final String image;
+
+  SliderModel({
+    required this.image,
+  });
+}
