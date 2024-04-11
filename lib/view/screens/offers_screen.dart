@@ -1,5 +1,6 @@
 import 'package:e_commerce/controller/fav_controller.dart';
 import 'package:e_commerce/controller/offers_controller.dart';
+import 'package:e_commerce/core/class/handlingdataview.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
@@ -40,22 +41,20 @@ class OffersScreen extends StatelessWidget {
                     },
                   ),
                   !controller.isSearch
-                      ? controller.statusRequest == StatusRequest.loading
-                          ? Center(
-                              child:
-                                  LottieBuilder.asset(AppImageAsset.loadding))
-                          : Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: ListView.builder(
-                                physics: NeverScrollableScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: controller.data.length,
-                                itemBuilder: (context, index) =>
-                                    CustomeCardOffers(
-                                  itemsModel: controller.data[index],
-                                ),
+                      ? HandlingDataView(
+                          statusRequest: controller.statusRequest,
+                          widget: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: ListView.builder(
+                              physics: NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: controller.data.length,
+                              itemBuilder: (context, index) =>
+                                  CustomeCardOffers(
+                                itemsModel: controller.data[index],
                               ),
-                            )
+                            ),
+                          ))
                       : ListItemsSearch(listdatamodel: controller.listdata)
                 ],
               )),

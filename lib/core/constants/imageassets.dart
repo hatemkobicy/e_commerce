@@ -6,10 +6,10 @@ class AppImageAsset {
   static const String onBoardingback = "assets/images/onboardingbackground.png";
   static const String arrow = "assets/images/onboardingarrow.png";
   static const String logo = "assets/images/logo.png";
-  static const String loadding = "assets/lottie/loadding.json";
-  static const String nodata = "assets/lottie/nodata.json";
-  static const String noserver = "assets/lottie/noserver.json";
-  static const String failure = "assets/lottie/failure.json";
+  static const String loading = "assets/lottie/loadding.json";
+  static const String noData = "assets/lottie/nodata.json";
+  static const String offline = "assets/lottie/noserver.json";
+  static const String server = "assets/lottie/failure.json";
   static const String laptop = "assets/images/laptop.png";
   static const String person = "assets/images/person.jpg";
   static const String sale = "assets/images/sale.png";

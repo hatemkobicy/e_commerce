@@ -10,7 +10,7 @@ import 'package:get/get.dart';
 class CheckOutController extends GetxController {
   Addressdata addressdata = Get.put(Addressdata(Get.find()));
   CheckoutData checkoutData = Get.put(CheckoutData(Get.find()));
-  StatusRequest? statusRequest;
+  late StatusRequest statusRequest;
   AppServices appServices = Get.find();
   String? paymentMethod;
   String? deliveryType;

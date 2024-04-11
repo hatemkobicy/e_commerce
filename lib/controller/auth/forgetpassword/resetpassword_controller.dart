@@ -15,7 +15,7 @@ abstract class ResetPasswordController extends GetxController {
 class ResetPasswordControllerImp extends ResetPasswordController {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   ResetPasswordData resetPasswordData = ResetPasswordData(Get.find());
-  StatusRequest? statusRequest;
+ late StatusRequest statusRequest;
   late TextEditingController password;
   late TextEditingController repassword;
   String? email;

@@ -1,4 +1,5 @@
 import 'package:e_commerce/controller/myfav_controller.dart';
+import 'package:e_commerce/core/class/handlingdataview.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
@@ -22,26 +23,25 @@ class MyFavorite extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       body: GetBuilder<MyfavoriteController>(
-        builder: (controller) =>
-            controller.statusRequest == StatusRequest.loading
-                ? Center(child: LottieBuilder.asset(AppImageAsset.loadding))
-                : ListView(
-                    children: [
-                      GridView.builder(
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: controller.data.length,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  childAspectRatio: 0.64, crossAxisCount: 2),
-                          itemBuilder: (context, index) {
-                            return CustomeCardFav(
-                              favoritemodel: controller.data[index],
-                            );
-                          }),
-                    ],
-                  ),
-      ),
+          builder: (controller) => HandlingDataView(
+                statusRequest: controller.statusRequest,
+                widget: ListView(
+                  children: [
+                    GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: controller.data.length,
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                childAspectRatio: 0.64, crossAxisCount: 2),
+                        itemBuilder: (context, index) {
+                          return CustomeCardFav(
+                            favoritemodel: controller.data[index],
+                          );
+                        }),
+                  ],
+                ),
+              )),
     );
   }
 }

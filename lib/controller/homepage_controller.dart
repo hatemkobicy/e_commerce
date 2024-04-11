@@ -51,7 +51,6 @@ class HomePageControllerImp extends HomePageController {
         categories.addAll(response['categories']['data']);
         items.addAll(response['items']['data']);
         best.addAll(response['best']['data']);
-        
       } else {
         statusRequest = StatusRequest.failure;
       }

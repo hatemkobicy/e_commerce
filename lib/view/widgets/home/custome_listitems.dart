@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 
 class CustomeItemsList extends GetView<HomePageControllerImp> {
   const CustomeItemsList({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +17,7 @@ class CustomeItemsList extends GetView<HomePageControllerImp> {
       child: ListView.builder(
         itemCount: controller.items.length,
         scrollDirection: Axis.horizontal,
-        itemBuilder: ( context, i) {
+        itemBuilder: (context, i) {
           return ItemsHome(
             itemsModel: ItemsModel.fromJson(controller.items[i]),
           );
@@ -27,48 +27,55 @@ class CustomeItemsList extends GetView<HomePageControllerImp> {
   }
 }
 
-class ItemsHome extends StatelessWidget {
+class ItemsHome extends GetView<HomePageControllerImp> {
   final ItemsModel itemsModel;
   const ItemsHome({super.key, required this.itemsModel});
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(15),
-          height: 175,
-          width: 250,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10),
-            child: CachedNetworkImage(
-              height: 175,
-              width: 250,
-              fit: BoxFit.fitHeight,
-              imageUrl: '${AppLink.imageitems}/${itemsModel.itemsImage}',
+    return InkWell(
+      onTap: () {
+        controller.gotoprouductdetiles(itemsModel);
+      },
+      child: Stack(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(15),
+            height: 175,
+            width: 250,
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: CachedNetworkImage(
+                height: 175,
+                width: 250,
+                fit: BoxFit.fitHeight,
+                imageUrl: '${AppLink.imageitems}/${itemsModel.itemsImage}',
+              ),
             ),
           ),
-        ),
-        Container(
-          margin: const EdgeInsets.only(left: 5),
-          decoration: BoxDecoration(
-            color: AppColor.backgroundcolor1.withOpacity(0.2),
-            borderRadius: BorderRadius.circular(15),
+          Container(
+            margin: const EdgeInsets.only(left: 5),
+            decoration: BoxDecoration(
+              color: AppColor.backgroundcolor1.withOpacity(0.2),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            height: 195,
+            width: 242,
           ),
-          height: 195,
-          width: 242,
-        ),
-        Positioned(
-          left: 35,
-          bottom: 10,
-          child: Text(
-            "${itemsModel.itemsName}",
-            style: const TextStyle(
-                color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
+          Positioned(
+            left: 35,
+            bottom: 10,
+            child: Text(
+              "${itemsModel.itemsName}",
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

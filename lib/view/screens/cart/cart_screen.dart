@@ -1,5 +1,6 @@
 import 'package:e_commerce/controller/cart_controller.dart';
 import 'package:e_commerce/controller/productdetails_controller.dart';
+import 'package:e_commerce/core/class/handlingdataview.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
@@ -40,32 +41,32 @@ class CartScreen extends StatelessWidget {
         ),
         backgroundColor: AppColor.primery,
         body: GetBuilder<CartController>(
-          builder: (controller) => controller.statusRequest ==
-                  StatusRequest.loading
-              ? Center(child: LottieBuilder.asset(AppImageAsset.loadding))
-              : ListView(
-                  children: [
-                    ...List.generate(
-                      cartController.data.length,
-                      (index) => CustomListViewCart(
-                        price: '${cartController.data[index].itemsPrice}',
-                        title: '${cartController.data[index].itemsName}',
-                        itemscount: '${cartController.data[index].countitems}',
-                        onPressedadd: () async {
-                          await productcontroller
-                              .addcart(cartController.data[index].itemsId!);
-                          cartController.refreshPage();
-                        },
-                        onPressedremove: () async {
-                          await productcontroller
-                              .deletecart(cartController.data[index].itemsId!);
-                          cartController.refreshPage();
-                        },
-                        imagename: '${cartController.data[index].itemsImage}',
-                      ),
-                    )
-                  ],
+          builder: (controller) => HandlingDataView(
+            statusRequest: controller.statusRequest,
+            widget: ListView(
+              children: [
+                ...List.generate(
+                  cartController.data.length,
+                  (index) => CustomListViewCart(
+                    price: '${cartController.data[index].itemsPrice}',
+                    title: '${cartController.data[index].itemsName}',
+                    itemscount: '${cartController.data[index].countitems}',
+                    onPressedadd: () async {
+                      await productcontroller
+                          .addcart(cartController.data[index].itemsId!);
+                      cartController.refreshPage();
+                    },
+                    onPressedremove: () async {
+                      await productcontroller
+                          .deletecart(cartController.data[index].itemsId!);
+                      cartController.refreshPage();
+                    },
+                    imagename: '${cartController.data[index].itemsImage}',
+                  ),
                 ),
+              ],
+            ),
+          ),
         ),
       ),
     );

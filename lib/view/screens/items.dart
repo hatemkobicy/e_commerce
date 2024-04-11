@@ -1,5 +1,6 @@
 import 'package:e_commerce/controller/fav_controller.dart';
 import 'package:e_commerce/controller/items_controller.dart';
+import 'package:e_commerce/core/class/handlingdataview.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
@@ -52,29 +53,29 @@ class ItemsPage extends StatelessWidget {
               height: 15,
             ),
             GetBuilder<ItemsControllerImp>(
-              builder: (controller) => controller.statusRequest ==
-                      StatusRequest.loading
-                  ? Center(child: LottieBuilder.asset(AppImageAsset.loadding))
-                  : !controller.isSearch
-                      ? GridView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          itemCount: controller.data.length,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  childAspectRatio: 0.64, crossAxisCount: 2),
-                          itemBuilder: (BuildContext context, index) {
-                            controllerfav.isFavorite[controller.data[index]
-                                    ['items_id']] =
-                                controller.data[index]['favorite'];
-                            return CustomeCard(
-                              itemsModel:
-                                  ItemsModel.fromJson(controller.data[index]),
-                            );
-                          },
-                        )
-                      : ListItemsSearch(listdatamodel: controller.listdata),
-            ),
+                builder: (controller) => HandlingDataView(
+                      statusRequest: controller.statusRequest,
+                      widget: !controller.isSearch
+                          ? GridView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: controller.data.length,
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                      childAspectRatio: 0.64,
+                                      crossAxisCount: 2),
+                              itemBuilder: (BuildContext context, index) {
+                                controllerfav.isFavorite[controller.data[index]
+                                        ['items_id']] =
+                                    controller.data[index]['favorite'];
+                                return CustomeCard(
+                                  itemsModel: ItemsModel.fromJson(
+                                      controller.data[index]),
+                                );
+                              },
+                            )
+                          : ListItemsSearch(listdatamodel: controller.listdata),
+                    )),
           ],
         ),
       ),

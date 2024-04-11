@@ -73,6 +73,7 @@ class CustomeCardOffers extends GetView<OffersController> {
 
     return InkWell(
       onTap: () {
+        controller.gotoprouductdetiles(itemsModel);
       },
       child: Container(
         padding: const EdgeInsets.all(5),
@@ -80,7 +81,6 @@ class CustomeCardOffers extends GetView<OffersController> {
           children: [
             FillImageCard(
               color: AppColor.backgroundcolor1,
-              
               imageProvider: CachedNetworkImageProvider(
                 AppLink.imageitems + "/" + itemsModel.itemsImage!,
               ),

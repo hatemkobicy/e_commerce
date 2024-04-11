@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors,
 
 import 'package:e_commerce/controller/checkout_controller.dart';
+import 'package:e_commerce/core/class/handlingdataview.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
@@ -47,131 +48,130 @@ class CheckOutScreen extends StatelessWidget {
         ),
       ),
       body: GetBuilder<CheckOutController>(
-        builder: (controller) => controller.statusRequest ==
-                StatusRequest.loading
-            ? Center(child: LottieBuilder.asset(AppImageAsset.loadding))
-            : ListView(
-                children: [
-                  const Center(
-                    child: Text(
-                      "Choose Your payment Method",
-                      style: TextStyle(
-                        color: Colors.white,
+        builder: (controller) => HandlingDataView(statusRequest: controller.statusRequest, widget: ListView(
+                  children: [
+                    const Center(
+                      child: Text(
+                        "Choose Your payment Method",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  InkWell(
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    InkWell(
+                        splashColor: AppColor.primery.withOpacity(0),
+                        onTap: () {
+                          controller.choosePaymentMethod("0"); // cash
+                        },
+                        child: CashPaymentMethod(
+                          isActive:
+                              controller.paymentMethod == "0" ? true : false,
+                          text: "Payment Cash       ",
+                          icon1: Icons.attach_money_rounded,
+                        )),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    InkWell(
                       splashColor: AppColor.primery.withOpacity(0),
                       onTap: () {
-                        controller.choosePaymentMethod("0"); // cash
+                        controller.choosePaymentMethod("1"); //card
                       },
                       child: CashPaymentMethod(
                         isActive:
-                            controller.paymentMethod == "0" ? true : false,
-                        text: "Payment Cash       ",
-                        icon1: Icons.attach_money_rounded,
-                      )),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  InkWell(
-                    splashColor: AppColor.primery.withOpacity(0),
-                    onTap: () {
-                      controller.choosePaymentMethod("1"); //card
-                    },
-                    child: CashPaymentMethod(
-                      isActive: controller.paymentMethod == "1" ? true : false,
-                      text: 'Payment Cards      ',
-                      icon1: Icons.credit_card,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Center(
-                    child: Text(
-                      "Choose Your Shipped Method",
-                      style: TextStyle(
-                        color: Colors.white,
+                            controller.paymentMethod == "1" ? true : false,
+                        text: 'Payment Cards      ',
+                        icon1: Icons.credit_card,
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 22),
-                    child: Row(
-                      children: [
-                        InkWell(
-                          splashColor: AppColor.primery.withOpacity(0),
-                          onTap: () {
-                            controller.chooseDeliveryType("0"); //0=> Delivery
-                          },
-                          child: CardDelivery(
-                            image: AppImageAsset.delivery,
-                            text: "Delivery",
-                            isActive:
-                                controller.deliveryType == "0" ? true : false,
-                          ),
-                        ),
-                        InkWell(
-                          splashColor: const Color.fromARGB(0, 1, 60, 132),
-                          onTap: () {
-                            controller
-                                .chooseDeliveryType("1"); //1=> Pickup Point
-                          },
-                          child: CardDelivery(
-                            image: AppImageAsset.point,
-                            text: "Pickup point",
-                            isActive:
-                                controller.deliveryType == "1" ? true : false,
-                          ),
-                        )
-                      ],
+                    SizedBox(
+                      height: 15,
                     ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  if (controller.deliveryType == "0")
-                    Column(
-                      children: [
-                        Center(
-                          child: Text(
-                            "Choose Your Addres ",
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
+                    Center(
+                      child: Text(
+                        "Choose Your Shipped Method",
+                        style: TextStyle(
+                          color: Colors.white,
                         ),
-                        ...List.generate(
-                          controller.dataAddres.length,
-                          (index) => InkWell(
-                            splashColor: const Color.fromARGB(0, 255, 193, 7),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 22),
+                      child: Row(
+                        children: [
+                          InkWell(
+                            splashColor: AppColor.primery.withOpacity(0),
                             onTap: () {
-                              controller.chooseAddres(
-                                  controller.dataAddres[index].addressId!);
+                              controller.chooseDeliveryType("0"); //0=> Delivery
                             },
-                            child: CardAddress(
-                              name:
-                                  '${controller.dataAddres[index].addressName}',
-                              suptitle:
-                                  '${controller.dataAddres[index].addressCity}\n${controller.dataAddres[index].addressStreet}',
-                              isActive: controller.addresID ==
-                                      controller.dataAddres[index].addressId
-                                  ? true
-                                  : false,
+                            child: CardDelivery(
+                              image: AppImageAsset.delivery,
+                              text: "Delivery",
+                              isActive:
+                                  controller.deliveryType == "0" ? true : false,
                             ),
                           ),
-                        ),
-                      ],
+                          InkWell(
+                            splashColor: const Color.fromARGB(0, 1, 60, 132),
+                            onTap: () {
+                              controller
+                                  .chooseDeliveryType("1"); //1=> Pickup Point
+                            },
+                            child: CardDelivery(
+                              image: AppImageAsset.point,
+                              text: "Pickup point",
+                              isActive:
+                                  controller.deliveryType == "1" ? true : false,
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                ],
-              ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    if (controller.deliveryType == "0")
+                      Column(
+                        children: [
+                          Center(
+                            child: Text(
+                              "Choose Your Addres ",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          ...List.generate(
+                            controller.dataAddres.length,
+                            (index) => InkWell(
+                              splashColor: const Color.fromARGB(0, 255, 193, 7),
+                              onTap: () {
+                                controller.chooseAddres(
+                                    controller.dataAddres[index].addressId!);
+                              },
+                              child: CardAddress(
+                                name:
+                                    '${controller.dataAddres[index].addressName}',
+                                suptitle:
+                                    '${controller.dataAddres[index].addressCity}\n${controller.dataAddres[index].addressStreet}',
+                                isActive: controller.addresID ==
+                                        controller.dataAddres[index].addressId
+                                    ? true
+                                    : false,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                  ],
+                ),
+              ) 
       ),
     );
   }

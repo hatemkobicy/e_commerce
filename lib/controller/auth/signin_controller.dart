@@ -22,7 +22,7 @@ class LoginControllerImp extends LoginController {
   late TextEditingController email;
   late TextEditingController password;
   IconData passwordicon1 = Icons.remove_red_eye;
-  StatusRequest? statusRequest;
+ late StatusRequest statusRequest;
 
   bool isshowpassword = true;
   showpassword() {

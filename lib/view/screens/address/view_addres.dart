@@ -33,7 +33,7 @@ class ViewAddres extends StatelessWidget {
       body: GetBuilder<AddressViewController>(
         builder: (controller) => controller.statusRequest ==
                 StatusRequest.loading
-            ? Center(child: LottieBuilder.asset(AppImageAsset.loadding))
+            ? Center(child: LottieBuilder.asset(AppImageAsset.loading))
             : ListView.builder(
                 itemCount: controller.data.length,
                 itemBuilder: (BuildContext context, int index) {

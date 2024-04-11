@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/controller/productdetails_controller.dart';
+import 'package:e_commerce/core/class/handlingdataview.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
@@ -30,7 +31,6 @@ class ProductDetailsPage extends StatelessWidget {
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadiusDirectional.circular(40)),
           onPressed: () {
-            
             Get.toNamed(AppRoute.cart);
           },
           child: const Text(
@@ -46,40 +46,40 @@ class ProductDetailsPage extends StatelessWidget {
         foregroundColor: Colors.white,
       ),
       body: GetBuilder<ProductDetailsControllerImp>(
-        builder: (controller) =>
-            controller.statusRequest == StatusRequest.loading
-                ? Center(child: LottieBuilder.asset(AppImageAsset.loadding))
-                : ListView(
-                    children: [
-                      Stack(
-                        children: [
-                          Container(
-                            height: 200,
-                            decoration: const BoxDecoration(
-                                color: AppColor.backgroundcolor1,
-                                borderRadius: BorderRadius.vertical(
-                                    bottom: Radius.circular(25))),
+          builder: (controller) => HandlingDataView(
+                statusRequest: controller.statusRequest,
+                widget: ListView(
+                  children: [
+                    Stack(
+                      children: [
+                        Container(
+                          height: 200,
+                          decoration: const BoxDecoration(
+                              color: AppColor.backgroundcolor1,
+                              borderRadius: BorderRadius.vertical(
+                                  bottom: Radius.circular(25))),
+                        ),
+                        Center(
+                          child: CachedNetworkImage(
+                            imageUrl:
+                                "${AppLink.imageitems}/${controller.itemsModel.itemsImage!}",
+                            height: 300,
                           ),
-                          Center(
-                            child: CachedNetworkImage(
-                              imageUrl: "${AppLink.imageitems}/${controller.itemsModel.itemsImage!}",
-                              height: 300,
-                            ),
-                          ),
-                        ],
-                      ),
-                      CustomeItemsDetails(
-                        count: "${controller.countitems}",
-                        onadd: () {
-                          controller.add();
-                        },
-                        onremove: () {
-                          controller.remove();
-                        },
-                      ),
-                    ],
-                  ),
-      ),
+                        ),
+                      ],
+                    ),
+                    CustomeItemsDetails(
+                      count: "${controller.countitems}",
+                      onadd: () {
+                        controller.add();
+                      },
+                      onremove: () {
+                        controller.remove();
+                      },
+                    ),
+                  ],
+                ),
+              )),
     );
   }
 }

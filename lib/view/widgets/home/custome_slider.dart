@@ -16,7 +16,18 @@ class CustomeImageSlider extends StatelessWidget {
         isAssets: true,
         sliderHeight: 300,
         indicatorActiveColor: AppColor.onboardingcolor,
-        isClickable: false,
+        isClickable: true,
+        currentItemShadow: [
+          BoxShadow(
+              offset: Offset(1, 1),
+              color: AppColor.onboardingcolor,
+              blurRadius: 10),
+          BoxShadow(
+              offset: Offset(-1, -1),
+              color: AppColor.onboardingcolor,
+              blurRadius: 10)
+        ],
+        expandImageHeight: 650,
       ),
     );
   }

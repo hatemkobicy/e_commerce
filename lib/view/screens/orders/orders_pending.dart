@@ -1,4 +1,5 @@
 import 'package:e_commerce/controller/orders/pending_controllers.dart';
+import 'package:e_commerce/core/class/handlingdataview.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
@@ -25,15 +26,15 @@ class OrdersPending extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.all(10),
         child: GetBuilder<OrdersPendingController>(
-          builder: (controller) =>
-              controller.statusRequest == StatusRequest.loading
-                  ? Center(child: LottieBuilder.asset(AppImageAsset.loadding))
-                  : ListView.builder(
-                      itemCount: controller.data.length,
-                      itemBuilder: (context, index) => CardOrderList(
-                        listdata: controller.data[index],
-                      ),
-                    ),
+          builder: (controller) => HandlingDataView(
+            statusRequest: controller.statusRequest,
+            widget: ListView.builder(
+              itemCount: controller.data.length,
+              itemBuilder: (context, index) => CardOrderList(
+                listdata: controller.data[index],
+              ),
+            ),
+          ),
         ),
       ),
     );

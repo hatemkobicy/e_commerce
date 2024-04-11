@@ -26,7 +26,7 @@ class FinalAddres extends StatelessWidget {
       body: GetBuilder<FinalAddAddressController>(
         builder: (controller) => controllerpage.statusRequest ==
                 StatusRequest.loading
-            ? Center(child: LottieBuilder.asset(AppImageAsset.loadding))
+            ? Center(child: LottieBuilder.asset(AppImageAsset.loading))
             : ListView(
                 children: [
                   Container(

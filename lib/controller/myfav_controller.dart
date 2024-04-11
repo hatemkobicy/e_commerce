@@ -12,7 +12,7 @@ class MyfavoriteController extends GetxController {
   AppServices appServices = Get.find();
   List<ItemsModel> listdata = [];
 
-   StatusRequest? statusRequest;
+  late StatusRequest statusRequest;
   MyFavoriteData myFavoriteData = MyFavoriteData(Get.find());
 
   getData() async {

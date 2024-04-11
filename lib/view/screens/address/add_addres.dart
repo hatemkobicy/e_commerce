@@ -26,7 +26,7 @@ class AddAddres extends StatelessWidget {
         child: GetBuilder<AddAddressController>(
           builder: (controller) => controller.statusRequest ==
                   StatusRequest.loading
-              ? Center(child: LottieBuilder.asset(AppImageAsset.loadding))
+              ? Center(child: LottieBuilder.asset(AppImageAsset.loading))
               : Column(
                   children: [
                     if (controllerpage.kGooglePlex != null)
