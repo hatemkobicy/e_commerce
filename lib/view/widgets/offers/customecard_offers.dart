@@ -1,6 +1,7 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers, prefer_interpolation_to_compose_strings
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/controller/fav_controller.dart';
-import 'package:e_commerce/controller/items_controller.dart';
 import 'package:e_commerce/controller/offers_controller.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';

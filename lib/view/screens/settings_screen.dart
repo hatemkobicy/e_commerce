@@ -29,7 +29,7 @@ class SettingScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: AppColor.primery,
                     borderRadius: BorderRadius.circular(100)),
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   radius: 90,
                   backgroundImage: AssetImage(AppImageAsset.person),
                 ),
@@ -49,8 +49,8 @@ class SettingScreen extends StatelessWidget {
               children: [
                 ListTile(
                   onTap: () {},
-                  title: Text("Change Language"),
-                  trailing: Icon(
+                  title: const Text("Change Language"),
+                  trailing: const Icon(
                     Icons.language_sharp,
                     color: AppColor.primery,
                   ),
@@ -62,8 +62,8 @@ class SettingScreen extends StatelessWidget {
                   onTap: () {
                     Get.toNamed(AppRoute.orderspending);
                   },
-                  title: Text("My Orders"),
-                  trailing: Icon(
+                  title: const Text("My Orders"),
+                  trailing: const Icon(
                     Icons.shopping_cart_checkout_outlined,
                     color: AppColor.primery,
                   ),
@@ -75,19 +75,19 @@ class SettingScreen extends StatelessWidget {
                   onTap: () {
                     Get.toNamed(AppRoute.addressview);
                   },
-                  title: Text("My Adress"),
-                  trailing: Icon(
+                  title: const Text("My Adress"),
+                  trailing: const Icon(
                     Icons.location_on_sharp,
                     color: AppColor.primery,
                   ),
                 ),
-                Divider(
+                const Divider(
                   color: AppColor.primery,
                 ),
                 ListTile(
                   onTap: () {},
-                  title: Text("About Us"),
-                  trailing: Icon(
+                  title: const Text("About Us"),
+                  trailing: const Icon(
                     Icons.people,
                     color: AppColor.primery,
                   ),
@@ -99,8 +99,8 @@ class SettingScreen extends StatelessWidget {
                   onTap: () {
                     launchUrl(Uri.parse("https://wa.me/qr/4JACY3QPQA3RE1"));
                   },
-                  title: Text("Contact Us"),
-                  trailing: Icon(
+                  title: const Text("Contact Us"),
+                  trailing: const Icon(
                     Icons.contact_support,
                     color: AppColor.primery,
                   ),
@@ -112,8 +112,8 @@ class SettingScreen extends StatelessWidget {
                   onTap: () {
                     controller.logout();
                   },
-                  title: Text("Logout"),
-                  trailing: Icon(
+                  title: const Text("Logout"),
+                  trailing: const Icon(
                     Icons.exit_to_app,
                     color: AppColor.primery,
                   ),

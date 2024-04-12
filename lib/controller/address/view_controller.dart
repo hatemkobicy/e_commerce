@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/functions/handlingdata.dart';
 import 'package:e_commerce/core/services/services.dart';
@@ -7,7 +9,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class AddressViewController extends GetxController {
-  late StatusRequest statusRequest;
+ late StatusRequest statusRequest ;
   Addressdata addressdata = Addressdata(Get.find());
   AppServices appServices = Get.find();
   List<AddressModel> data = [];
@@ -23,8 +25,9 @@ class AddressViewController extends GetxController {
         List listdata = response['data'];
         data.addAll(listdata.map((e) => AddressModel.fromJson(e)));
       } else {
+        update();
         statusRequest = StatusRequest.failure;
-        return Center(child: Text("No Data"));
+        return const Center(child: Text("No Data"));
       }
     }
     update();

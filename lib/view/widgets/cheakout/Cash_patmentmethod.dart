@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:flutter/material.dart';
 
@@ -23,12 +25,12 @@ class CashPaymentMethod extends StatelessWidget {
           Text(
             text,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
           ),
           Icon(
             icon1,
-            color: Color.fromARGB(255, 221, 255, 4),
+            color: const Color.fromARGB(255, 221, 255, 4),
           ),
         ],
       ),

@@ -1,15 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/controller/productdetails_controller.dart';
 import 'package:e_commerce/core/class/handlingdataview.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/linkapi.dart';
 import 'package:e_commerce/view/widgets/itemsdetails/items_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class ProductDetailsPage extends StatelessWidget {
   const ProductDetailsPage({

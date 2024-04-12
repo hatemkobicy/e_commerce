@@ -1,9 +1,9 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:e_commerce/controller/fav_controller.dart';
 import 'package:e_commerce/controller/items_controller.dart';
 import 'package:e_commerce/core/class/handlingdataview.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/data/model/itemsview_model.dart';
 import 'package:e_commerce/view/screens/home/home.dart';
@@ -12,7 +12,6 @@ import 'package:e_commerce/view/widgets/items/custome_carditems.dart';
 import 'package:e_commerce/view/widgets/items/listcategories_items.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class ItemsPage extends StatelessWidget {
   const ItemsPage({super.key});
@@ -48,7 +47,7 @@ class ItemsPage extends StatelessWidget {
             const SizedBox(
               height: 15,
             ),
-            CustomeCategoreiseListItems(),
+            const CustomeCategoreiseListItems(),
             const SizedBox(
               height: 15,
             ),

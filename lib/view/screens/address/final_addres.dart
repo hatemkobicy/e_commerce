@@ -2,8 +2,6 @@ import 'package:e_commerce/controller/address/finaladd_controller.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
-import 'package:e_commerce/view/widgets/Buttons/mbuttons.dart';
-import 'package:e_commerce/view/widgets/textform/custometextform.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -30,10 +28,9 @@ class FinalAddres extends StatelessWidget {
             : ListView(
                 children: [
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                     child: TextFormField(
                       controller: controllerpage.street,
-                      
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,
@@ -62,10 +59,9 @@ class FinalAddres extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                     child: TextFormField(
                       controller: controllerpage.city,
-                      
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,
@@ -94,10 +90,9 @@ class FinalAddres extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
                     child: TextFormField(
                       controller: controllerpage.name,
-                      
                       style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,
@@ -125,7 +120,7 @@ class FinalAddres extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 400,
                   ),
                   Container(
@@ -134,15 +129,21 @@ class FinalAddres extends StatelessWidget {
                       borderRadius: BorderRadiusDirectional.circular(40),
                       color: AppColor.backgroundcolor1,
                     ),
-                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                     height: 60,
                     child: MaterialButton(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadiusDirectional.circular(40)),
                       onPressed: () {
-                        controllerpage.addAddres();
+                        if (controller.name!.text.isNotEmpty &&
+                            controller.city!.text.isNotEmpty &&
+                            controller.street!.text.isNotEmpty) {
+                          controllerpage.addAddres();
+                        } else {
+                          Get.snackbar("Error", "Please Fill all fiald");
+                        }
                       },
-                      child: Text(
+                      child: const Text(
                         "Save Addres",
                         style: TextStyle(
                             color: Colors.white,

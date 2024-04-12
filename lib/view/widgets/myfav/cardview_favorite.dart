@@ -1,3 +1,5 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers, prefer_interpolation_to_compose_strings
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/controller/myfav_controller.dart';
 import 'package:e_commerce/core/constants/color.dart';
@@ -32,7 +34,7 @@ class CustomeCardFav extends GetView<MyfavoriteController> {
             onPressed: () {
               controller.deletefav(favoritemodel.favoriteId!);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.delete_sweep_outlined,
               size: 35,
               color: Color.fromARGB(138, 218, 6, 6),

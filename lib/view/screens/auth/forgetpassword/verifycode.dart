@@ -1,13 +1,10 @@
 import 'package:e_commerce/controller/auth/forgetpassword/verifiycode_controller.dart';
 import 'package:e_commerce/core/class/handlingdataview.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/view/widgets/Buttons/mbuttons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class VerfiyCode extends StatelessWidget {

@@ -1,12 +1,11 @@
+// ignore_for_file: unused_local_variable, avoid_unnecessary_containers
+
 import 'package:e_commerce/controller/orders/details_controller.dart';
 import 'package:e_commerce/core/class/handlingdataview.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:lottie/lottie.dart';
 
 class OrdersDetails extends StatelessWidget {
   const OrdersDetails({super.key});
@@ -23,7 +22,7 @@ class OrdersDetails extends StatelessWidget {
         title: const Text('Orders Details'),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: GetBuilder<OrdersDetailsController>(
           builder: (controller) => HandlingDataView(
             statusRequest: controller.statusRequest,
@@ -40,7 +39,7 @@ class OrdersDetails extends StatelessWidget {
                           defaultVerticalAlignment:
                               TableCellVerticalAlignment.middle,
                           children: [
-                            TableRow(
+                            const TableRow(
                               decoration: UnderlineTabIndicator(
                                   borderSide: BorderSide(
                                       color: AppColor.primery, width: 3)),
@@ -74,7 +73,7 @@ class OrdersDetails extends StatelessWidget {
                             ...List.generate(
                               controller.data.length,
                               (index) => TableRow(
-                                decoration: UnderlineTabIndicator(
+                                decoration: const UnderlineTabIndicator(
                                     borderSide:
                                         BorderSide(color: AppColor.primery)),
                                 children: [
@@ -83,7 +82,7 @@ class OrdersDetails extends StatelessWidget {
                                     maxLines: 2,
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,
                                     ),
@@ -91,13 +90,13 @@ class OrdersDetails extends StatelessWidget {
                                   Text(
                                     "${controller.data[index].countitems}",
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white, fontSize: 16),
                                   ),
                                   Text(
                                     "${controller.data[index].itemsPrice}\$",
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white, fontSize: 16),
                                   ),
                                 ],
@@ -106,10 +105,10 @@ class OrdersDetails extends StatelessWidget {
                           ],
                         ),
                         Container(
-                          padding: EdgeInsets.all(10),
+                          padding: const EdgeInsets.all(10),
                           child: Text(
                             "Total Price : ${controller.ordersModel.ordersTotalprice}\$",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold),
@@ -124,18 +123,18 @@ class OrdersDetails extends StatelessWidget {
                     color: AppColor.backgroundcolor1,
                     child: Container(
                       child: ListTile(
-                        title: Text(
+                        title: const Text(
                           "Shipping Addres :",
                           style: TextStyle(color: AppColor.primery),
                         ),
                         subtitle: Text(
                           "${controller.ordersModel.addressCity} ${controller.ordersModel.addressStreet!}",
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                         ),
                       ),
                     ),
                   ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 if (controller.ordersModel.ordersType == 0)
@@ -145,7 +144,7 @@ class OrdersDetails extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20)),
                     height: 300,
                     width: double.infinity,
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: GoogleMap(

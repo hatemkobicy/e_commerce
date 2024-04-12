@@ -1,13 +1,12 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:e_commerce/controller/auth/verifycode_signup_controller.dart';
 import 'package:e_commerce/core/class/handlingdataview.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/view/widgets/Buttons/mbuttons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:otp_timer_button/otp_timer_button.dart';
 
@@ -49,7 +48,7 @@ class VerfiyCodeSignup extends StatelessWidget {
                       Text(
                         'Sent To Email:\n ${controller.email}',
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                       const SizedBox(
                         height: 30,
@@ -85,7 +84,7 @@ class VerfiyCodeSignup extends StatelessWidget {
                           onPressed: () {
                             controller.reSend();
                           },
-                          text: Text(
+                          text: const Text(
                             "Resend Code",
                             style: TextStyle(color: Colors.white),
                           ),

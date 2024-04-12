@@ -21,7 +21,7 @@ class SignUpControllerImp extends SignUpController {
   SignUpData signUpData = SignUpData(Get.find());
   List data = [];
 
- late StatusRequest statusRequest;
+ StatusRequest statusRequest = StatusRequest.none;
 
   @override
   signup() async {

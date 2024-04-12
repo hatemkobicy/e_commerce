@@ -28,7 +28,7 @@ class HomeScreenNav extends StatelessWidget {
           ),
           child: SafeArea(
             child: DoubleBackToCloseApp(
-              snackBar: SnackBar(
+              snackBar: const SnackBar(
                 content: Text('Tap back again to leave'),
               ),
               child: Padding(

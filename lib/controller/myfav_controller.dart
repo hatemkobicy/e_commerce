@@ -1,4 +1,6 @@
 
+// ignore_for_file: unused_local_variable, avoid_print
+
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/functions/handlingdata.dart';
 import 'package:e_commerce/core/services/services.dart';

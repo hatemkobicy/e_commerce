@@ -1,4 +1,4 @@
-// ignore_for_file: must_call_super
+// ignore_for_file: must_call_super, avoid_print
 
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
@@ -51,7 +51,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            duration: Duration(milliseconds: 70),
+            duration: const Duration(milliseconds: 70),
             snackPosition: SnackPosition.TOP,
             backgroundColor: AppColor.backgroundcolor1,
             title: "Notifection",
@@ -77,7 +77,7 @@ class ProductDetailsControllerImp extends ProductDetailsController {
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         Get.rawSnackbar(
-            duration: Duration(milliseconds: 70),
+            duration: const Duration(milliseconds: 70),
             snackPosition: SnackPosition.TOP,
             backgroundColor: AppColor.backgroundcolor1,
             title: "Notifection",

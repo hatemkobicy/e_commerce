@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/core/functions/handlingdata.dart';
@@ -45,18 +47,24 @@ class CheckOutController extends GetxController {
       if (response['status'] == "success") {
         List listdata = response['data'];
         dataAddres.addAll(listdata.map((e) => AddressModel.fromJson(e)));
+        addresID = dataAddres[0].addressId!;
       } else {
-        statusRequest = StatusRequest.failure;
+        statusRequest = StatusRequest.success;
       }
     }
     update();
   }
 
   checkout() async {
-    if (paymentMethod == null)
+    if (paymentMethod == null) {
       return Get.snackbar("Error", "Please Select a Payment Methods");
-    if (deliveryType == null)
+    }
+    if (deliveryType == null) {
       return Get.snackbar("Error", "Please Select a Shipped Method");
+    }
+    if (dataAddres.isEmpty) {
+      return Get.snackbar("Error", "Please Add Addres to Ship");
+    }
 
     statusRequest = StatusRequest.loading;
     update();
@@ -90,7 +98,7 @@ class CheckOutController extends GetxController {
     couponid = Get.arguments['couponid'];
     priceorders = Get.arguments['priceordrs'];
     coupondiscount = Get.arguments['discountcoupon'];
-    
+
     getShipAddress();
     super.onInit();
   }

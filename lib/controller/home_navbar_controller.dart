@@ -1,4 +1,3 @@
-import 'package:e_commerce/controller/productdetails_controller.dart';
 import 'package:e_commerce/view/screens/cart/cart_screen.dart';
 import 'package:e_commerce/view/screens/home/home.dart';
 import 'package:e_commerce/view/screens/offers_screen.dart';

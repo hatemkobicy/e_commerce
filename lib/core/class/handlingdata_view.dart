@@ -1,7 +1,4 @@
-import 'package:e_commerce/core/class/statusrequest.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
+
 
 //class HandlingDataView extends StatelessWidget {
 //  final StatusRequest statusRequest;

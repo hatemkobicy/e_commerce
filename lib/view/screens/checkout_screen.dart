@@ -1,16 +1,15 @@
-// ignore_for_file: prefer_const_constructors,
+// ignore_for_file: prefer_const_constructors,, avoid_unnecessary_containers
 
 import 'package:e_commerce/controller/checkout_controller.dart';
 import 'package:e_commerce/core/class/handlingdataview.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
 import 'package:e_commerce/core/constants/imageassets.dart';
+import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/view/widgets/cheakout/Card_address.dart';
 import 'package:e_commerce/view/widgets/cheakout/card_delivery.dart';
 import 'package:e_commerce/view/widgets/cheakout/Cash_patmentmethod.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class CheckOutScreen extends StatelessWidget {
   const CheckOutScreen({super.key});
@@ -48,7 +47,9 @@ class CheckOutScreen extends StatelessWidget {
         ),
       ),
       body: GetBuilder<CheckOutController>(
-        builder: (controller) => HandlingDataView(statusRequest: controller.statusRequest, widget: ListView(
+          builder: (controller) => HandlingDataView(
+                statusRequest: controller.statusRequest,
+                widget: ListView(
                   children: [
                     const Center(
                       child: Text(
@@ -147,6 +148,28 @@ class CheckOutScreen extends StatelessWidget {
                               ),
                             ),
                           ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          if (controller.dataAddres.isEmpty)
+                            InkWell(
+                              onTap: () {
+                                Get.toNamed(AppRoute.addressadd);
+                              },
+                              child: Container(
+                                child: Center(
+                                  child: Text(
+                                    "Please Add Addres in setting \n Click Here",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        decoration: TextDecoration.underline,
+                                        fontWeight: FontWeight.bold,
+                                        decorationColor: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ...List.generate(
                             controller.dataAddres.length,
                             (index) => InkWell(
@@ -171,8 +194,7 @@ class CheckOutScreen extends StatelessWidget {
                       ),
                   ],
                 ),
-              ) 
-      ),
+              )),
     );
   }
 }

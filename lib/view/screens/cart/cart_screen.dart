@@ -1,14 +1,13 @@
+// ignore_for_file: unnecessary_string_interpolations
+
 import 'package:e_commerce/controller/cart_controller.dart';
 import 'package:e_commerce/controller/productdetails_controller.dart';
 import 'package:e_commerce/core/class/handlingdataview.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/view/widgets/cart/custom_listview.dart';
 import 'package:e_commerce/view/widgets/cart/custom_pricenav.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});

@@ -22,7 +22,7 @@ class LoginControllerImp extends LoginController {
   late TextEditingController email;
   late TextEditingController password;
   IconData passwordicon1 = Icons.remove_red_eye;
- late StatusRequest statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   bool isshowpassword = true;
   showpassword() {
@@ -61,7 +61,8 @@ class LoginControllerImp extends LoginController {
             //  data.addAll(response['data']);
             Get.offNamed(AppRoute.home);
           } else {
-            Get.toNamed(AppRoute.verficodesignup, arguments: {"email":email.text});
+            Get.toNamed(AppRoute.verficodesignup,
+                arguments: {"email": email.text});
           }
         } else {
           Get.defaultDialog(

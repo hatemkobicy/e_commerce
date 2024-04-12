@@ -1,16 +1,13 @@
 import 'package:double_back_to_close_app/double_back_to_close_app.dart';
 import 'package:e_commerce/controller/auth/signup_controller.dart';
 import 'package:e_commerce/core/class/handlingdataview.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/core/functions/validinput.dart';
 import 'package:e_commerce/view/widgets/Buttons/mbuttons.dart';
 import 'package:e_commerce/view/widgets/textform/custometextform.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class SignUpPAge extends StatelessWidget {
   const SignUpPAge({super.key});

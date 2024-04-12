@@ -1,18 +1,15 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:e_commerce/controller/fav_controller.dart';
 import 'package:e_commerce/controller/offers_controller.dart';
 import 'package:e_commerce/core/class/handlingdataview.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/core/constants/routes.dart';
-import 'package:e_commerce/data/model/itemsview_model.dart';
 import 'package:e_commerce/view/screens/home/home.dart';
 import 'package:e_commerce/view/widgets/home/custome_searchbar.dart';
-import 'package:e_commerce/view/widgets/items/custome_carditems.dart';
 import 'package:e_commerce/view/widgets/offers/customecard_offers.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class OffersScreen extends StatelessWidget {
   const OffersScreen({super.key});
@@ -46,7 +43,7 @@ class OffersScreen extends StatelessWidget {
                           widget: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: ListView.builder(
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               shrinkWrap: true,
                               itemCount: controller.data.length,
                               itemBuilder: (context, index) =>

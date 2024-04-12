@@ -1,12 +1,9 @@
 import 'package:e_commerce/controller/myfav_controller.dart';
 import 'package:e_commerce/core/class/handlingdataview.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/view/widgets/myfav/cardview_favorite.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class MyFavorite extends StatelessWidget {
   const MyFavorite({super.key});

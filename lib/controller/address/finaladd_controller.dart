@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/core/functions/handlingdata.dart';
@@ -7,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class FinalAddAddressController extends GetxController {
-  StatusRequest? statusRequest;
+ StatusRequest? statusRequest;
   TextEditingController? name;
   TextEditingController? city;
   TextEditingController? street;
@@ -46,6 +48,7 @@ class FinalAddAddressController extends GetxController {
         Get.offAllNamed(AppRoute.homescreen);
         Get.snackbar("Done", "The address has been added successfully");
       } else {
+        update();
         statusRequest = StatusRequest.failure;
       }
     }

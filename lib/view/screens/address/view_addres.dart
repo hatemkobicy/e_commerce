@@ -1,14 +1,13 @@
-import 'dart:ffi';
+
+// ignore_for_file: unused_local_variable
 
 import 'package:e_commerce/controller/address/view_controller.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
+import 'package:e_commerce/core/class/handlingdataview.dart';
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/data/model/address_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class ViewAddres extends StatelessWidget {
   const ViewAddres({super.key});
@@ -21,7 +20,7 @@ class ViewAddres extends StatelessWidget {
         onPressed: () {
           Get.toNamed(AppRoute.addressadd);
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       backgroundColor: AppColor.primery,
       appBar: AppBar(
@@ -31,20 +30,20 @@ class ViewAddres extends StatelessWidget {
         title: const Text('My Address'),
       ),
       body: GetBuilder<AddressViewController>(
-        builder: (controller) => controller.statusRequest ==
-                StatusRequest.loading
-            ? Center(child: LottieBuilder.asset(AppImageAsset.loading))
-            : ListView.builder(
-                itemCount: controller.data.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return CardAddres(
-                    addressModel: controller.data[index],
-                    ondelete: () {
-                      controller.deleteData(controller.data[index].addressId!);
-                    },
-                  );
+        builder: (controller) => HandlingDataView(
+          statusRequest: controller.statusRequest,
+          widget: ListView.builder(
+            itemCount: controller.data.length,
+            itemBuilder: (BuildContext context, int index) {
+              return CardAddres(
+                addressModel: controller.data[index],
+                ondelete: () {
+                  controller.deleteData(controller.data[index].addressId!);
                 },
-              ),
+              );
+            },
+          ),
+        ),
       ),
     );
   }
@@ -59,9 +58,9 @@ class CardAddres extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: AppColor.onboardingcolor,
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: ListTile(
           subtitle: Text(
             "City : ${addressModel.addressCity} \nStreet : ${addressModel.addressStreet}",
@@ -69,7 +68,7 @@ class CardAddres extends StatelessWidget {
           title: Text("${addressModel.addressName}"),
           trailing: IconButton(
               onPressed: ondelete,
-              icon: Icon(
+              icon: const Icon(
                 Icons.delete_sweep_outlined,
                 size: 35,
               )),

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable, avoid_unnecessary_containers, prefer_interpolation_to_compose_strings
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce/controller/homepage_controller.dart';
 import 'package:e_commerce/core/constants/color.dart';
@@ -21,11 +23,11 @@ class CustomSearchListView extends StatelessWidget {
     HomePageControllerImp controllerImp = Get.put(HomePageControllerImp());
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Card(
         color: AppColor.backgroundcolor1,
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: Column(
             children: [
               Container(
@@ -47,7 +49,7 @@ class CustomSearchListView extends StatelessWidget {
                       child: ListTile(
                         subtitle: Text(
                           price + "\$",
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                         ),
                         title: Text(
                           title,

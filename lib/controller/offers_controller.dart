@@ -1,3 +1,5 @@
+// ignore_for_file: overridden_fields, annotate_overrides, avoid_print
+
 import 'package:e_commerce/controller/homepage_controller.dart';
 import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/functions/handlingdata.dart';

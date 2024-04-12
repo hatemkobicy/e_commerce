@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, overridden_fields, annotate_overrides
 
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/core/functions/handlingdata.dart';
@@ -18,14 +18,14 @@ abstract class HomePageController extends SearchController {
 
 class HomePageControllerImp extends HomePageController {
   ItemsData itemsData = ItemsData(Get.find());
-  HomeData homeData = HomeData(Get.find());
+  
   AppServices appServices = Get.find();
   List data = [];
   List categories = [];
   List items = [];
   List best = [];
   String? username;
-  late StatusRequest statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   initialData() {
@@ -92,7 +92,6 @@ class SearchController extends GetxController {
     searchdata();
     update();
   }
-
   gotoprouductdetiles(itemsModel) {
     Get.toNamed(AppRoute.productdetails, arguments: {"itemsmodel": itemsModel});
   }

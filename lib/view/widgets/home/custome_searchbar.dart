@@ -43,7 +43,7 @@ class CustomeSearchBar extends StatelessWidget {
                 hintText: hinttext,
                 prefixIcon: IconButton(
                   onPressed: onpresssearch,
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.search_outlined,
                     color: Colors.white,
                   ),

@@ -1,13 +1,12 @@
+// ignore_for_file: unused_local_variable, unnecessary_string_interpolations
+
 import 'package:e_commerce/controller/orders/pending_controllers.dart';
 import 'package:e_commerce/core/class/handlingdataview.dart';
-import 'package:e_commerce/core/class/statusrequest.dart';
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:e_commerce/core/constants/routes.dart';
 import 'package:e_commerce/data/model/orders_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 class OrdersPending extends StatelessWidget {
   const OrdersPending({super.key});

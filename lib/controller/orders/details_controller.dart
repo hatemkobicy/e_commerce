@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, avoid_print
+
 import 'dart:async';
 
 import 'package:e_commerce/core/class/statusrequest.dart';

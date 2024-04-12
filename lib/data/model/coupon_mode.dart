@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types, unnecessary_new, prefer_collection_literals, unnecessary_this
+
 class couponModel {
   int? couponId;
   String? couponName;

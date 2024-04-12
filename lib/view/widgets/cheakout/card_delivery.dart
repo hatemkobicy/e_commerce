@@ -1,5 +1,4 @@
 import 'package:e_commerce/core/constants/color.dart';
-import 'package:e_commerce/core/constants/imageassets.dart';
 import 'package:flutter/material.dart';
 
 class CardDelivery extends StatelessWidget {
