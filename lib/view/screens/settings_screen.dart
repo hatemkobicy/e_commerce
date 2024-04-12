@@ -19,8 +19,13 @@ class SettingScreen extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Container(
+              width: double.infinity,
               height: Get.height / 4,
               color: AppColor.backgroundcolor1,
+              child: Image.asset(
+                AppImageAsset.view,
+                fit: BoxFit.fill,
+              ),
             ),
             Positioned(
               top: Get.height / 7.5,

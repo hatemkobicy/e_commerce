@@ -19,4 +19,5 @@ class AppImageAsset {
   static const String slider2 = "assets/images/slider (2).jpg";
   static const String slider3 = "assets/images/slider (3).jpg";
   static const String slider4 = "assets/images/slider (4).jpg";
+  static const String view = "assets/images/view.jpg";
 }
