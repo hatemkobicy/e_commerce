@@ -13,7 +13,7 @@ abstract class VerifyCodeController extends GetxController {
 
 class VerifyCodeControllerImp extends VerifyCodeController {
   VerfiCodeReset verfiCodeReset = VerfiCodeReset(Get.find());
- late StatusRequest statusRequest;
+ StatusRequest statusRequest = StatusRequest.none;
   String? email;
 
   @override
@@ -43,7 +43,7 @@ class VerifyCodeControllerImp extends VerifyCodeController {
       } else {
         Get.defaultDialog(
             title: "Error", middleText: "The Code is not verfiy ");
-        statusRequest = StatusRequest.failure;
+        statusRequest = StatusRequest.none;
       }
     }
     update();

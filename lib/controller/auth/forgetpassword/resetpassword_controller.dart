@@ -15,7 +15,7 @@ abstract class ResetPasswordController extends GetxController {
 class ResetPasswordControllerImp extends ResetPasswordController {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   ResetPasswordData resetPasswordData = ResetPasswordData(Get.find());
- late StatusRequest statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   late TextEditingController password;
   late TextEditingController repassword;
   String? email;
@@ -58,8 +58,9 @@ class ResetPasswordControllerImp extends ResetPasswordController {
           //  data.addAll(response['data']);
           Get.offAllNamed(AppRoute.successresetpassword);
         } else {
-          Get.defaultDialog(title: "Error", middleText: "Try Agian");
-          statusRequest = StatusRequest.failure;
+          Get.defaultDialog(
+              title: "Error", middleText: "The New Password Most be different");
+          statusRequest = StatusRequest.none;
         }
       }
       update();

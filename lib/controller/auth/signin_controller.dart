@@ -67,7 +67,7 @@ class LoginControllerImp extends LoginController {
         } else {
           Get.defaultDialog(
               title: "Error", middleText: "Email Or Password Not Correct");
-          statusRequest = StatusRequest.failure;
+          statusRequest = StatusRequest.none;
         }
       }
       update();

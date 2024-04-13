@@ -14,7 +14,7 @@ abstract class ForgetPasswordController extends GetxController {
 class ForgetPasswordControllerImp extends ForgetPasswordController {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
   CheakEmailData cheakEmailData = CheakEmailData(Get.find());
- late StatusRequest statusRequest;
+ StatusRequest statusRequest = StatusRequest.none;
   late TextEditingController email;
 
   @override
@@ -32,7 +32,7 @@ class ForgetPasswordControllerImp extends ForgetPasswordController {
         } else {
           Get.defaultDialog(
               title: "Error", middleText: "Email Not Found");
-          statusRequest = StatusRequest.failure;
+          statusRequest = StatusRequest.none;
         }
       }
       update();
